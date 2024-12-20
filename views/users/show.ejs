@@ -4,7 +4,7 @@
   <ul>
     <% stand.forEach((element) => { %>
       <li>
-       <%= element.name %>
+       <a href="/taco-stands/<%= stand._id %>"><%= element.name %></a>
       </li>
     <% }); %>
   </ul>

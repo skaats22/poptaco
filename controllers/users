@@ -11,7 +11,7 @@ const ensureSignedIn =  require('../middleware/ensure-signed-in');
 router.get('/', ensureSignedIn, async (req, res) => {
   // req.user is the signed in user's document (userSchema object)
   const users = await User.find();
-  res.render('users/home.ejs', 
+  res.render('users/home.ejs',
     {
       title: 'Our Community',
       users,
@@ -22,10 +22,10 @@ router.get('/', ensureSignedIn, async (req, res) => {
 // GET /users/:id (show functionality)
 router.get('/:sId', ensureSignedIn, async (req, res) => {
   const currentUser = await User.findById(req.params.sId);
-  const stand = await TacoStand.findById(req.params.sId).populate('owner');
+  const stand = await TacoStand.find({}).populate('name');
   res.render('users/show.ejs', 
     {
-      title: `${currentUser.username}'s Pantry`, 
+      title: `${currentUser.username}'s Taco Stands`, 
       user: currentUser,
       stand,
     }
