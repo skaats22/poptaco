@@ -37,7 +37,11 @@ const tacoStandSchema = new Schema({
     type: String,
     required: false,
   },
-  hours: {
+  day: {
+    type: String,
+    required: false,
+  },
+  hour: {
     type: String,
     required: false,
   },

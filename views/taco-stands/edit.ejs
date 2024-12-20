@@ -12,10 +12,13 @@
   <input type="text" name="city" id="city" value="<%=stand.city%>">
 
   <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price" value="<%=stand.price%>">
+  <input type="text" name="price" id="price" value="<%= stand.price %>">
 
-  <label for="hours">Hours (day-day, hour-hour): </label>
-  <input type="text" name="hours" id="hours" value="<%=stand.hours%>">
+  <label for="day">Days Open: </label>
+  <input type="text" name="day" id="day" value="<%= stand.day %>">
+
+  <label for="hour">Hours Open: </label>
+  <input type="text" name="hour" id="hour" value="<%= stand.hour %>">
 
   <button type="submit">Update Taco Stand</button>
 

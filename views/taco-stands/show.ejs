@@ -1,11 +1,9 @@
 <%- include('../partials/header.ejs') %>
-<h3> Rating: 
-  <% for (let i = 0; i < stand.rating; i++) { %>
-    &#127790;
-  <% } %>
-</h3>
+<div><%= ratingD %></div>
+
 
 <ul>
+  <p>Details:</p>
   <li>
     City: <%= stand.city %>
   </li>
@@ -13,9 +11,10 @@
     Price: <%= stand.price %>
   </li>
   <li>
-    Hours: <%= stand.hours %>
+    Open: <%= stand.day %>, <%= stand.hour %>
   </li>
 </ul>
+
 <a href="/taco-stands/<%= stand._id %>/edit">Edit Taco Stand</a>
 <form action="/taco-stands/<%= stand._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete Taco Stand</button>

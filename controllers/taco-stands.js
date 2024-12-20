@@ -5,6 +5,11 @@ const TacoStand = require('../models/taco-stand');
 // Middleware to protect seleceted routes
 const ensureSignedIn =  require('../middleware/ensure-signed-in');
 
+// Function for adding emojis based on rating
+function ratingEmojis (count, emoji) {
+  return emoji.repeat(count);
+}
+
 // All routes start with '/taco-stands'
 
 // GET /stands (index functionality) UNPROTECTED - all users can access
@@ -26,9 +31,13 @@ router.get('/new', ensureSignedIn, (req, res) => {
 // GET /taco-stands/:sId (show functionality) UNPROTECTED
 router.get('/:sId', async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId).populate('owner');
+  const rating = stand.rating;
+  const emoji = '🌮';
+  const ratingD = ratingEmojis(rating, emoji);
   res.render('taco-stands/show.ejs', {
-    title: `${stand.name} in ${stand.city}`,
+    title: `${stand.name}`,
     stand,
+    ratingD
   })
 });
 
