@@ -16,7 +16,7 @@
     Hours: <%= stand.hours %>
   </li>
 </ul>
-
+<a href="/taco-stands/<%= stand._id %>/edit">Edit Taco Stand</a>
 <form action="/taco-stands/<%= stand._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete Taco Stand</button>
 </form>

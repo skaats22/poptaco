@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="/taco-stands/<%= stand._id %>?_method=PUT" method="POST">
+  
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name">
+
+  <label for="rating">Rating (0-5): </label>
+  <input type="text" name="rating" id="rating">
+
+  <label for="city">City: </label>
+  <input type="text" name="city" id="city">
+
+  <label for="price">Price ($-$$$): </label>
+  <input type="text" name="price" id="price">
+
+  <label for="hours">Hours (day-day, hour-hour): </label>
+  <input type="text" name="hours" id="hours">
+
+  <button type="submit">Update Taco Stand</button>
+
+</form>
+
+
+<%- include('../partials/footer.ejs') %>

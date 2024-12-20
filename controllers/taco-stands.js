@@ -32,6 +32,28 @@ router.get('/:sId', async (req, res) => {
   })
 });
 
+// GET /taco-stands/:sId/edit (edit functionality) PROTECTED
+router.get('/:sId/edit', ensureSignedIn, async (req, res) => {
+  const stand = await TacoStand.findById(req.params.sId);
+  res.render('taco-stands/edit.ejs', {
+    title: `Edit ${stand.name}`,
+    stand,
+  })
+});
+
+// PUT /taco-stands/:sId (update functionality) PROTECTED
+router.put('/:sId', ensureSignedIn, async (req, res) => {
+  try {
+    const stand = await TacoStand.findById(req.params.sId);
+    await stand.updateOne(req.body);
+    await stand.save();
+    res.redirect(`/taco-stands`)
+  } catch (e) {
+    console.log(e);
+    res.redirect('/');
+  }
+});
+
 // POST /taco-stands (create functionality) PROTECTED
 router.post('/', ensureSignedIn, async (req, res) => {
   try {
