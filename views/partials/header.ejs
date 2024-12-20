@@ -16,11 +16,11 @@
     <!-- Above renders whether signed in or not -->
      <% if (user) { %>
       <a href="/users">Our Community</a>
-      <a href="/auth/sign-out">SIGN OUT</a>
+      <a href="/auth/sign-out">Sign Out</a>
       <span><%= user.username._id %></span>
      <% } else { %>
-        <a href="/auth/sign-up">SIGN UP</a>
-        <a href="/auth/sign-in">SIGN IN</a>
+      <a href="/auth/sign-in">Log In</a>
+      <a href="/auth/sign-up">Sign Up</a>
       </div>
      <% } %>
   </nav>

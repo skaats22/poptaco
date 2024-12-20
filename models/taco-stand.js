@@ -2,6 +2,24 @@ const mongoose = require("mongoose");
 //Shortcut variable
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    required: true,
+  },
+  comment: {
+    type: String,
+    required: true,
+  }
+}, {
+  timestamps: true,
+  }
+);
+
 const tacoStandSchema = new Schema({
   name: {
     type: String,
@@ -28,6 +46,7 @@ const tacoStandSchema = new Schema({
     ref: 'User',
     required: true,
   },
+  reviews: [reviewSchema],
 });
 
 module.exports = mongoose.model("TacoStand", tacoStandSchema);

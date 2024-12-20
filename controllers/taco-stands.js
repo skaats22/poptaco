@@ -46,7 +46,7 @@ router.put('/:sId', ensureSignedIn, async (req, res) => {
   try {
     const stand = await TacoStand.findById(req.params.sId);
     await stand.updateOne(req.body);
-    await stand.save();
+    await recipe.save();
     res.redirect(`/taco-stands`)
   } catch (e) {
     console.log(e);

@@ -2,7 +2,7 @@
 
 <% users.forEach((element) => { %>
   <p><%= element.username %></p>
-  <a href="/users/<%= element._id%>">View <%= element.username.replace('@email.com', '') %>'s pantry</a>
+  <a href="/users/<%= element._id%>">View <%= element.username %>'s Taco Stands</a>
 <% }) %>
 
 <%- include('../partials/footer.ejs') %>

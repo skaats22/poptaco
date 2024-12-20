@@ -34,7 +34,7 @@ router.post('/sign-up', async (req, res) => {
 
 // GET /auth/sign-in (show the sign-in page)
 router.get('/sign-in', (req, res) => {
-  res.render('auth/sign-in.ejs', { title: 'Sign In' });
+  res.render('auth/sign-in.ejs', { title: 'Log In:' });
 });
 
 // POST /auth/sign-in (sign in a user)
@@ -50,7 +50,7 @@ router.post('/sign-in', async (req, res) => {
     res.redirect('/');
   } catch (e) {
     console.log(e);
-    res.render('auth/sign-in.ejs', { title: 'Sign In' });
+    res.render('auth/sign-in.ejs', { title: 'Log In:' });
   }
 });
 

@@ -21,11 +21,11 @@ router.get('/', ensureSignedIn, async (req, res) => {
 
 // GET /users/:id (show functionality)
 router.get('/:sId', ensureSignedIn, async (req, res) => {
-  const currentUser = await User.findById(req.params.id);
-  const stand = currentUser.tacoStand;
+  const currentUser = await User.findById(req.params.sId);
+  const stand = await TacoStand.findById(req.params.sId).populate('owner');
   res.render('users/show.ejs', 
     {
-      title: `${currentUser.username}'s Pantry`,
+      title: `${currentUser.username}'s Pantry`, 
       user: currentUser,
       stand,
     }

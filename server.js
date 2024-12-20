@@ -22,6 +22,11 @@ mongoose.connection.on("connected", () => {
 // Mount Middleware
 // app.use(...)
 
+const path = require('path');
+// Serve static files from the "assets" folder
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
 // Static middleware for returning static assets to the browser
@@ -42,12 +47,11 @@ const ensureSignedIn = require("./middleware/ensure-signed-in");
 
 // Add the user (if logged in) to req.user & res.locals
 app.use(require('./middleware/add-user-to-locals-and-req'));
-
 // Routes
 
 // GET /  (home page functionality)
 app.get('/', (req, res) => {
-  res.render('home.ejs', { title: 'Home Page' });
+  res.render('home.ejs', { title: 'Welcome to PopTaco!' });
 });
 
 // '/auth' is the "starts with" path that the request must match
