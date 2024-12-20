@@ -1,5 +1,16 @@
 <%- include('../partials/header.ejs') %>
 
+<% stands.forEach((element) => { %>
+  <ul>
+    <li>
+      <a href="/taco-stands/<%= element._id %>"><%= element.name %></a> ( 
+        <% for (let i = 0; i < element.rating; i++) { %>
+          &#127790;
+        <% } %>
+      )
+    </li>
+  </ul>
+<% }) %>
 
 <a href="/taco-stands/new">Add a new Taco Stand</a>
 

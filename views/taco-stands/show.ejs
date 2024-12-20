@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+<h2>
+  <% for (let i = 0; i < stand.rating; i++) { %>
+    &#127790;
+  <% } %>
+</h2>
+
+<ul>
+  <li>
+    City: <%= stand.city %>
+  </li>
+  <li>
+    Price: <%= stand.price %>
+  </li>
+  <li>
+    Hours: <%= stand.hours %>
+  </li>
+</ul>
+
+
+
+<a href="/taco-stands/new">Add a new Taco Stand</a>
+
+<%- include('../partials/footer.ejs') %>
