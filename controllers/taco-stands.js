@@ -23,7 +23,7 @@ router.get('/new', ensureSignedIn, (req, res) => {
   })
 });
 
-// GET /taco-stands/:tId (show functionality)
+// GET /taco-stands/:sId (show functionality) UNPROTECTED
 router.get('/:sId', async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId).populate('owner');
   res.render('taco-stands/show.ejs', {
@@ -41,6 +41,13 @@ router.post('/', ensureSignedIn, async (req, res) => {
   } catch (e) {
     res.redirect('/listings/new');
   }
+});
+
+// DELETE /taco-stands/:sId (delete functionality) PROTECTED
+router.delete('/:sId', ensureSignedIn, async (req, res) => {
+  await TacoStand.findByIdAndDelete(req.params.sId);
+  await req.user.save();
+  res.redirect('/taco-stands');
 });
 
 module.exports = router;
