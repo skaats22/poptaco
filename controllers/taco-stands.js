@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/new', ensureSignedIn, (req, res) => {
   res.render('taco-stands/new.ejs', {
     title: 'Add New Taco Stand',
-  })
+  });
 });
 
 // GET /taco-stands/:sId (show functionality) UNPROTECTED
@@ -50,12 +50,19 @@ router.get('/:sId/edit', ensureSignedIn, async (req, res) => {
   })
 });
 
+// GET /taco-stands/:sId/comments (index comments functionality)
+router.get('/:sId/reviews', (req, res) => {
+  res.render('taco-stands/show.ejs', {
+
+  })
+});
+
 // PUT /taco-stands/:sId (update functionality) PROTECTED
 router.put('/:sId', ensureSignedIn, async (req, res) => {
   try {
     const stand = await TacoStand.findById(req.params.sId);
     await stand.updateOne(req.body);
-    await recipe.save();
+    await stand.save();
     res.redirect(`/taco-stands`)
   } catch (e) {
     console.log(e);
