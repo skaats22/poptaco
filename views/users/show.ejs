@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs') %>
+
+<% if (stand.length) { %>
+  <ul>
+    <% stand.forEach((element) => { %>
+      <li>
+       <%= element.name %>
+      </li>
+    <% }); %>
+  </ul>
+    
+  <% } else { %>
+    <p>This user has not created any Taco Stands.</p>
+  <% } %>
+
+<%- include('../partials/footer.ejs') %>

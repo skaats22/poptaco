@@ -3,19 +3,19 @@
 <form action="/taco-stands/<%= stand._id %>?_method=PUT" method="POST">
   
   <label for="name">Name: </label>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" id="name" value="<%=stand.name%>">
 
   <label for="rating">Rating (0-5): </label>
-  <input type="text" name="rating" id="rating">
+  <input type="text" name="rating" id="rating" value="<%=stand.rating%>">
 
   <label for="city">City: </label>
-  <input type="text" name="city" id="city">
+  <input type="text" name="city" id="city" value="<%=stand.city%>">
 
   <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price">
+  <input type="text" name="price" id="price" value="<%=stand.price%>">
 
   <label for="hours">Hours (day-day, hour-hour): </label>
-  <input type="text" name="hours" id="hours">
+  <input type="text" name="hours" id="hours" value="<%=stand.hours%>">
 
   <button type="submit">Update Taco Stand</button>
 

@@ -1,0 +1,8 @@
+<%- include('../partials/header.ejs') %>
+
+<% users.forEach((element) => { %>
+  <p><%= element.username %></p>
+  <a href="/users/<%= element._id%>">View <%= element.username.replace('@email.com', '') %>'s pantry</a>
+<% }) %>
+
+<%- include('../partials/footer.ejs') %>

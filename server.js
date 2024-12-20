@@ -37,6 +37,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
+const usersController = require('./controllers/users');
+const ensureSignedIn = require("./middleware/ensure-signed-in");
+
 // Add the user (if logged in) to req.user & res.locals
 app.use(require('./middleware/add-user-to-locals-and-req'));
 
@@ -60,7 +63,7 @@ app.use(require('./middleware/ensure-signed-in'));
 // Any controller/routes mounted below here will have
 // ALL routes protected by the ensureSignedIn middleware
 
-
+app.use('/users', usersController);
 
 
 
