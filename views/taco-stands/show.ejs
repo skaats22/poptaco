@@ -5,18 +5,40 @@
 <ul>
   <p>Details:</p>
   <li>
-    City: <%= stand.city %>
+    City: <%= currentStand.city %>
   </li>
   <li>
-    Price: <%= stand.price %>
+    Price: <%= currentStand.price %>
   </li>
   <li>
-    Open: <%= stand.day %>, <%= stand.hour %>
+    Open: <%= currentStand.day %>, <%= currentStand.hour %>
+  </li>
+  <li>
+    Reviews:
+    <ul>
+      <% currentStand.reviews.forEach(review => { %>
+        <li>User: <%= review.username %></li>
+        <li>
+          <% for (let i = 0; i < review.rating; i++) { %>
+            🌮
+          <% } %>
+        </li>
+        <li>Comment: <%= review.comment %></li>
+        <% }) %>
+      </ul>
   </li>
 </ul>
 
-<a href="/taco-stands/<%= stand._id %>/edit">Edit Taco Stand</a>
-<form action="/taco-stands/<%= stand._id %>?_method=DELETE" method="POST">
+<% if (user && user._id.toString() === currentStand.owner.toString()) { %>
+  <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>
+  <% } else if (user) { %>
+    <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
+<% } else { %>
+  <p><a href="/login">Please log in to add a review.</a></p>
+<% } %>
+
+<a href="/taco-stands/<%= currentStand._id %>/edit">Edit Taco Stand</a>
+<form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete Taco Stand</button>
 </form>
 

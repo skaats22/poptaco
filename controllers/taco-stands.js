@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const TacoStand = require('../models/taco-stand');
+const User = require('../models/user');
 
 // Middleware to protect seleceted routes
 const ensureSignedIn =  require('../middleware/ensure-signed-in');
@@ -30,14 +31,16 @@ router.get('/new', ensureSignedIn, (req, res) => {
 
 // GET /taco-stands/:sId (show functionality) UNPROTECTED
 router.get('/:sId', async (req, res) => {
-  const stand = await TacoStand.findById(req.params.sId).populate('owner');
-  const rating = stand.rating;
+  const currentStand = await TacoStand.findById(req.params.sId);
+  const user = req.user;
+  const rating = currentStand.rating;
   const emoji = '🌮';
   const ratingD = ratingEmojis(rating, emoji);
   res.render('taco-stands/show.ejs', {
-    title: `${stand.name}`,
-    stand,
-    ratingD
+    title: `${currentStand.name}`,
+    currentStand,
+    ratingD,
+    user,
   })
 });
 
@@ -50,10 +53,14 @@ router.get('/:sId/edit', ensureSignedIn, async (req, res) => {
   })
 });
 
-// GET /taco-stands/:sId/comments (index comments functionality)
-router.get('/:sId/reviews', (req, res) => {
-  res.render('taco-stands/show.ejs', {
-
+// GET /taco-stands/:sId/reviews/new (new review functionality)
+router.get('/:sId/reviews/new', ensureSignedIn, async (req, res) => {
+  const stand = await TacoStand.findById(req.params.sId);
+  const currentUser = req.user;
+  res.render('reviews/new.ejs', {
+    title: `Add a review for ${stand.name}`,
+    user: currentUser,
+    stand,
   })
 });
 
@@ -77,7 +84,24 @@ router.post('/', ensureSignedIn, async (req, res) => {
     await TacoStand.create(req.body);
     res.redirect('/taco-stands')
   } catch (e) {
-    res.redirect('/listings/new');
+    res.redirect('/taco-stands/new');
+  }
+});
+
+// POST /taco-stands/:sId/reviews (create review functionality) PROTECTED
+router.post('/:sId/reviews', ensureSignedIn, async (req, res) => {
+  try {
+    const stand = await TacoStand.findById(req.params.sId);
+    const newReview = {
+      username: req.user.username,
+      rating: req.body.rating,
+      comment: req.body.comment,
+    };
+    stand.reviews.push(newReview);
+    await stand.save();
+    res.redirect(`/taco-stands/${req.params.sId}`)
+  } catch (e) {
+    res.redirect('/taco-stands');
   }
 });
 
