@@ -39,7 +39,11 @@
           <li>
             <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>
           </li>
-            <% } %>
+          <form action="/taco-stands/<%= currentStand._id %>/reviews?_method=DELETE" method="POST">
+            <input type="hidden" name="reviewId" value="<%= review._id %>">
+            <button type="submit">Delete Review</button>
+          </form>
+          <% } %>
         <% }) %>
       </ul>
   </li>

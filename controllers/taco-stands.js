@@ -162,4 +162,14 @@ router.delete('/:sId', ensureSignedIn, async (req, res) => {
   res.redirect('/taco-stands');
 });
 
+// DELETE /taco-stands/:sId (delete functionality) PROTECTED
+router.delete('/:sId/reviews', ensureSignedIn, async (req, res) => {
+  const stand = await TacoStand.findById(req.params.sId);
+  // Find current review id
+  const review = stand.reviews.id(req.body.reviewId);
+  stand.reviews.pull(review);
+  await stand.save();
+  res.redirect(`/taco-stands/${req.params.sId}`);
+});
+
 module.exports = router;
