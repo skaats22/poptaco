@@ -69,8 +69,6 @@ router.get('/:sId/edit', ensureSignedIn, async (req, res) => {
   })
 });
 
-// TODO: Need to ensure you only can edit what you posted and 1 at a time
-// TODO: Change add and edit reviews premissions
 // GET /taco-stands/:sId/reviews/edit (edit review functionality) PROTECTED
 router.get('/:sId/reviews/edit', ensureSignedIn, async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId);
@@ -162,7 +160,7 @@ router.delete('/:sId', ensureSignedIn, async (req, res) => {
   res.redirect('/taco-stands');
 });
 
-// DELETE /taco-stands/:sId (delete functionality) PROTECTED
+// DELETE /taco-stands/:sId/reviews (delete review functionality) PROTECTED
 router.delete('/:sId/reviews', ensureSignedIn, async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId);
   // Find current review id
