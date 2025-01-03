@@ -16,6 +16,15 @@ function ratingEmojis (count, emoji) {
 // GET /stands (index functionality) UNPROTECTED - all users can access
 router.get('/', async (req, res) => {
   const stands = await TacoStand.find({}).populate('owner');
+  stands.forEach((stand) => {
+    if (stand.reviews.length > 0) {
+      const sum = stand.reviews.reduce((acc, review) => acc + review.rating, 0);
+      stand.averageRating = (sum / stand.reviews.length)
+    } else {
+      stand.averageRating = "No ratings yet";
+    }
+    stand.numberOfRatings = stand.reviews.length;
+  });
   res.render('taco-stands/home.ejs', {
     title: "All Taco Stands",
     stands,

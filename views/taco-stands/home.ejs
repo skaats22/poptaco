@@ -1,16 +1,18 @@
 <%- include('../partials/header.ejs') %>
 
-<% stands.forEach((element) => { %>
-  <ul>
+
+<ul>
+  <% stands.forEach((element) => { %>
     <li>
-      <a href="/taco-stands/<%= element._id %>"><%= element.name %></a> ( 
-        <% for (let i = 0; i < element.rating; i++) { %>
-          &#127790;
-        <% } %>
-      )
-    </li>
-  </ul>
-<% }) %>
+      <a href="/taco-stands/<%= element._id %>"><%= element.name %></a> 
+      <% if (element.averageRating !== "No ratings yet") { %>
+        (<%= element.averageRating %> 🌮, <%= element.numberOfRatings %> reviews)
+      <% } else { %>
+        (<%= element.averageRating %>)
+      <% } %>
+    </li><br>
+    <% }) %>
+</ul>
 
 <a href="/taco-stands/new">Add a new Taco Stand</a>
 
