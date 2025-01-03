@@ -91,9 +91,16 @@ router.put('/:sId', ensureSignedIn, async (req, res) => {
 // PUT /taco-stands/:sId/reviews (update review functionality) PROTECTED
 router.put('/:sId/reviews', ensureSignedIn, async (req, res) => {
   try {
+    // Find current taco stand
     const stand = await TacoStand.findById(req.params.sId);
-    stand.reviews = Array.isArray(req.body.comment) 
-      ? req.body.comment : [req.body.comment];
+    // Find current review id
+    const review = stand.reviews.id(req.body.reviewId);
+    if (req.body.rating) {
+      review.rating = req.body.rating;
+    }
+    if (req.body.comment) {
+      review.comment = req.body.comment;
+    }
     await stand.save();
     res.redirect(`/taco-stands/${req.params.sId}`)
   } catch (e) {
