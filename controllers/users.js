@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const TacoStand = require('../models/taco-stand');
+const TacoStand = require('../models/taco-stand.js');
 const User = require('../models/user.js');
 // Middleware to protect seleceted routes
-const ensureSignedIn =  require('../middleware/ensure-signed-in');
+const ensureSignedIn =  require('../middleware/ensure-signed-in.js');
 
 // All routes start with'/users'
 

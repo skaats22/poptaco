@@ -1,21 +1,25 @@
 <%- include('../partials/header.ejs') %>
 
-<form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
+<% stand.reviews.forEach((review) => { %>
+  <% if (review.username === currentUser.username) { %>
+    <form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
+    
+      <input type="hidden" name="reviewId" value="<%= stand.reviews._id %>">
+      
+    
+      <label for="rating">Rating (0-5): </label>
+      <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="0" max="5">
+      
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>
+    
+      <button type="submit">Update Review</button>
+    </form>
   
-  <% stand.reviews.forEach(review => { %>
-  <input type="hidden" name="reviewId" value="<%= review._id %>">
-  
-
-  <label for="rating">Rating (0-5): </label>
-  <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="0" max="5">
-  
-  <label for="comment">Comment:</label>
-  <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>
+    <form action="/taco-stands/<%= stand._id %>/reviews?_method=DELETE" method="POST">
+      <button type="submit">Delete Review</button>
+    </form>
+    <% } %>
   <% }) %>
-
-  <button type="submit">Update Review</button>
-
-</form>
-
 
 <%- include('../partials/footer.ejs') %>

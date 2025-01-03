@@ -61,8 +61,8 @@ router.get('/:sId/reviews/edit', ensureSignedIn, async (req, res) => {
   const currentUser = req.user;
   res.render('reviews/edit.ejs', {
     title: `Edit ${stand.name}`,
-    user: currentUser,
     stand,
+    currentUser,
   })
 });
 

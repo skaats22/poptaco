@@ -1,6 +1,12 @@
 <%- include('../partials/header.ejs') %>
 <div><%= ratingD %></div>
 
+<% if (user && currentStand.owner.toString() === user._id.toString()) { %>
+  <a href="/taco-stands/<%= currentStand._id %>/edit">Edit Taco Stand</a>
+  <form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Taco Stand</button>
+  </form>
+<% } %>
 
 <ul>
   <p>Details:</p>
@@ -24,22 +30,31 @@
           <% } %>
         </li>
         <li>Comment: <%= review.comment %></li>
+        <% if (user && user.username === review.username) { %>
+          <li>
+            <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>
+          </li>
+            <% } %>
         <% }) %>
       </ul>
   </li>
 </ul>
 
-<% if (user && user._id.toString() === currentStand.owner.toString()) { %>
-  <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>
-  <% } else if (user) { %>
-    <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
-<% } else { %>
+<% let userHasReviewed = false %>
+
+<% currentStand.reviews.forEach((review) => { %>
+  <% if (user && user.username === review.username) { %>
+    <% userHasReviewed = true %>
+  <% } %>
+<% }) %>
+
+<% if (user && !userHasReviewed) { %>
+  <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
+<% } else if (!user) { %>
   <p><a href="/login">Please log in to add a review.</a></p>
 <% } %>
 
-<a href="/taco-stands/<%= currentStand._id %>/edit">Edit Taco Stand</a>
-<form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete Taco Stand</button>
-</form>
+
+
 
 <%- include('../partials/footer.ejs') %>
