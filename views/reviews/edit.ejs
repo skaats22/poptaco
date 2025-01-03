@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
+  
+  <% stand.reviews.forEach(review => { %>
+  <label for="rating">Rating (0-5): </label>
+  <input type="text" name="rating" id="rating" value="<%=review.rating%>">
+  
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>
+    <% }) %>
+
+  <button type="submit">Update Review</button>
+
+</form>
+
+
+<%- include('../partials/footer.ejs') %>

@@ -53,6 +53,17 @@ router.get('/:sId/edit', ensureSignedIn, async (req, res) => {
   })
 });
 
+// GET /taco-stands/:sId/reviews/edit (edit review functionality) PROTECTED
+router.get('/:sId/reviews/edit', ensureSignedIn, async (req, res) => {
+  const stand = await TacoStand.findById(req.params.sId);
+  const currentUser = req.user;
+  res.render('reviews/edit.ejs', {
+    title: `Edit ${stand.name}`,
+    user: currentUser,
+    stand,
+  })
+});
+
 // GET /taco-stands/:sId/reviews/new (new review functionality)
 router.get('/:sId/reviews/new', ensureSignedIn, async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId);
@@ -71,6 +82,20 @@ router.put('/:sId', ensureSignedIn, async (req, res) => {
     await stand.updateOne(req.body);
     await stand.save();
     res.redirect(`/taco-stands`)
+  } catch (e) {
+    console.log(e);
+    res.redirect('/');
+  }
+});
+
+// PUT /taco-stands/:sId/reviews (update review functionality) PROTECTED
+router.put('/:sId/reviews', ensureSignedIn, async (req, res) => {
+  try {
+    const stand = await TacoStand.findById(req.params.sId);
+    stand.reviews = Array.isArray(req.body.comment) 
+      ? req.body.comment : [req.body.comment];
+    await stand.save();
+    res.redirect(`/taco-stands/${req.params.sId}`)
   } catch (e) {
     console.log(e);
     res.redirect('/');
