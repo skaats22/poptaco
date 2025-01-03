@@ -33,14 +33,21 @@ router.get('/new', ensureSignedIn, (req, res) => {
 router.get('/:sId', async (req, res) => {
   const currentStand = await TacoStand.findById(req.params.sId);
   const user = req.user;
-  const rating = currentStand.rating;
+  let avgRating = [];
+  currentStand.reviews.forEach((review) => {
+    avgRating.push(review.rating)
+  });
+  const sum = avgRating.reduce((acc, num) => acc + num, 0);
+  const average = sum / avgRating.length;
   const emoji = '🌮';
-  const ratingD = ratingEmojis(rating, emoji);
+  const ratingD = ratingEmojis(average, emoji);
   res.render('taco-stands/show.ejs', {
     title: `${currentStand.name}`,
     currentStand,
     ratingD,
     user,
+    avgRating,
+    average,
   })
 });
 
