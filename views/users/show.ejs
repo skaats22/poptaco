@@ -1,16 +1,24 @@
 <%- include('../partials/header.ejs') %>
 
-<% if (stand) { %>
-  <ul>
-    <% stand.forEach((element) => { %>
+<% let userCreated = false; %>
+
+<ul>
+  <% stands.forEach((element) => { %>
+    <% if (element.owner.toString() === user._id.toString()) { %>
+      <% userCreated = true %>
+    <% } %>
+  <% }); %>
+
+  <% if (user && userCreated === true) { %>
+    <% stands.forEach((element) => { %>
       <li>
-       <a href="/taco-stands/<%= stand._id %>"><%= element.name %></a>
+        <a href="/taco-stands/<%= element._id %>"><%= element.name %></a>
       </li>
-    <% }); %>
-  </ul>
-    
+    <% }) %>
   <% } else { %>
     <p>This user has not created any Taco Stands.</p>
   <% } %>
+ </ul>
+    
 
 <%- include('../partials/footer.ejs') %>

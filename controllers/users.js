@@ -22,12 +22,12 @@ router.get('/', ensureSignedIn, async (req, res) => {
 // GET /users/:id (show functionality)
 router.get('/:sId', ensureSignedIn, async (req, res) => {
   const currentUser = await User.findById(req.params.sId);
-  const stand = await TacoStand.find({}).populate('name');
+  const stands = await TacoStand.find({}).populate('name');
   res.render('users/show.ejs', 
     {
       title: `${currentUser.username}'s Taco Stands`, 
       user: currentUser,
-      stand,
+      stands,
     }
   );
 });
