@@ -4,7 +4,7 @@
   <% if (review.username === currentUser.username) { %>
     <form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
     
-      <input type="hidden" name="reviewId" value="<%= stand.reviews._id %>">
+      <input type="hidden" name="reviewId" value="<%= review._id %>">
       
     
       <label for="rating">Rating (0-5): </label>
