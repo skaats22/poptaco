@@ -129,6 +129,10 @@ router.put('/:sId/reviews', ensureSignedIn, async (req, res) => {
 router.post('/', ensureSignedIn, async (req, res) => {
   try {
     req.body.owner = req.user._id;
+    req.body.rating = 0;
+    if (req.body.day) {
+      req.body.day = Array.isArray(req.body.day) ? req.body.day : [req.body.day];
+    }
     await TacoStand.create(req.body);
     res.redirect('/taco-stands')
   } catch (e) {

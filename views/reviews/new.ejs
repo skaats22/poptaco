@@ -2,8 +2,8 @@
 
 <form action="/taco-stands/<%= stand._id %>/reviews" method="POST">
 
-  <label for="rating">Rating (0-5): </label>
-  <input type="text" name="rating" id="rating">
+  <label for="rating">Rating (1-5): </label>
+  <input type="text" name="rating" id="rating" min="1" max="5">
 
   <label for="comment">Comment:</label>
   <textarea name="comment" id="comment" required></textarea><br>

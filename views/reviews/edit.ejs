@@ -7,8 +7,8 @@
       <input type="hidden" name="reviewId" value="<%= review._id %>">
       
     
-      <label for="rating">Rating (0-5): </label>
-      <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="0" max="5">
+      <label for="rating">Rating (1-5): </label>
+      <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="1" max="5">
       
       <label for="comment">Comment:</label>
       <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>

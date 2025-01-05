@@ -3,22 +3,24 @@
 <form action="/taco-stands" method="POST">
   
   <label for="name">Name: </label>
-  <input type="text" name="name" id="name">
-
-  <label for="rating">Rating (0-5): </label>
-  <input type="text" name="rating" id="rating">
+  <input type="text" name="name" id="name" required>
 
   <label for="city">City: </label>
-  <input type="text" name="city" id="city">
+  <input type="text" name="city" id="city" required>
 
   <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price">
+  <input type="text" name="price" id="price" required>
 
-  <label for="day">Days Open: </label>
-  <input type="text" name="day" id="day">
+  <label for="day">Days Open: </label><br>
+  <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
+  <% days.forEach ((day) => { %>
+    <div>
+      <input type="checkbox" name="day" value="<%= day %>" id="day"><%= day %>
+    </div>
+  <% }) %><br>
 
   <label for="hour">Hours Open: </label>
-  <input type="text" name="hour" id="hour">
+  <input type="text" name="hour" id="hour" required>
 
 
   <button type="submit">Add Taco Stand</button>

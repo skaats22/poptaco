@@ -13,16 +13,22 @@
   </form>
 <% } %>
 
-<ul>
-  <p>Details:</p>
-  <li>
-    City: <%= currentStand.city %>
-  </li>
-  <li>
-    Price: <%= currentStand.price %>
-  </li>
-  <li>
-    Open: <%= currentStand.day %>, <%= currentStand.hour %>
+<li>
+  Details:
+  <ul>
+    <li>
+      City: <%= currentStand.city %>
+    </li>
+    <li>
+      Price: <%= currentStand.price %>
+    </li>
+    <li>
+    Days Open: 
+    <% currentStand.day.forEach((day) => { %>
+      <ul><li><%= day %></li></ul>
+    <% }) %>
+      <li><%= currentStand.hour %></li>
+    </ul>
   </li>
   <li>
     Reviews:
