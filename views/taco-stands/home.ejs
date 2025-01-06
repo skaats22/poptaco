@@ -14,6 +14,11 @@
     <% }) %>
 </ul>
 
-<a href="/taco-stands/new">Add a new Taco Stand</a>
+<% if (user) { %>
+  <a href="/taco-stands/new">Add a new Taco Stand</a>
+<% } else { %>
+  <a href="/auth/sign-in"><button>Log in to add a Taco Stand!</button></a>
+  <a href="/auth/sign-up"><button>Sign up to add a Taco Stand!</button></a>
+<% } %>
 
 <%- include('../partials/footer.ejs') %>
