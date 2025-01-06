@@ -27,7 +27,7 @@
     <% currentStand.day.forEach((day) => { %>
       <ul><li><%= day %></li></ul>
     <% }) %>
-      <li><%= currentStand.hour %></li>
+      <li>Hours: <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
     </ul>
   </li>
   <li>

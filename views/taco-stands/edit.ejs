@@ -5,20 +5,41 @@
   <label for="name">Name: </label>
   <input type="text" name="name" id="name" value="<%=stand.name%>">
 
-  <label for="rating">Rating (0-5): </label>
-  <input type="text" name="rating" id="rating" value="<%=stand.rating%>">
-
   <label for="city">City: </label>
   <input type="text" name="city" id="city" value="<%=stand.city%>">
 
   <label for="price">Price ($-$$$): </label>
   <input type="text" name="price" id="price" value="<%= stand.price %>">
 
-  <label for="day">Days Open: </label>
-  <input type="text" name="day" id="day" value="<%= stand.day %>">
+  <label for="day">Days Open: </label><br>
+  <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
+  <% days.forEach ((day) => { %>
+    <div>
+      <input type="checkbox" name="day" value="<%= day %>" id="day"
+        <%= stand.day && stand.day.includes(day) ? 'checked' : '' %>>
+      <%= day %>
+    </div>
+  <% }) %><br>
+  
 
   <label for="hour">Hours Open: </label>
-  <input type="text" name="hour" id="hour" value="<%= stand.hour %>">
+  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" 
+    value="<%= stand.hour[0] %>" required>
+  <div>
+    <input type="radio" name="fromPeriod" id="fromam" value="am" required 
+      <%= stand.hour && stand.hour[1] === 'am' ? 'checked' : '' %>> am
+    <input type="radio" name="fromPeriod" id="frompm" value="pm" required
+      <%= stand.hour && stand.hour[1] === 'pm' ? 'checked' : '' %>> pm
+  </div>
+  <label for="to">to </label>
+  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" 
+    value="<%= stand.hour[2] %>" required>
+  <div>
+    <input type="radio" name="toPeriod" id="toam" value="am"
+    <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> am
+    <input type="radio" name="toPeriod" id="topm" value="pm"
+    <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> pm
+  </div>
 
   <button type="submit">Update Taco Stand</button>
 

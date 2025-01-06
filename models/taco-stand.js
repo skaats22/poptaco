@@ -42,7 +42,7 @@ const tacoStandSchema = new Schema({
     required: false,
   },
   hour: {
-    type: String,
+    type: [String],
     required: false,
   },
   owner: {

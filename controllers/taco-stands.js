@@ -95,6 +95,7 @@ router.get('/:sId/reviews/new', ensureSignedIn, async (req, res) => {
 router.put('/:sId', ensureSignedIn, async (req, res) => {
   try {
     const stand = await TacoStand.findById(req.params.sId);
+    req.body.hour = [req.body.hourFrom, req.body.fromPeriod, req.body.hourTo, req.body.toPeriod];
     await stand.updateOne(req.body);
     await stand.save();
     res.redirect(`/taco-stands`)
