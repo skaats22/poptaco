@@ -13,34 +13,41 @@
   </form>
 <% } %>
 
-<li>
-  Details:
-  <ul>
-    <li>
-      City: <%= currentStand.city %>
-    </li>
-    <li>
-      Price: <%= currentStand.price %>
-    </li>
-    <li>
-    Days Open: 
-    <% currentStand.day.forEach((day) => { %>
-      <ul><li><%= day %></li></ul>
-    <% }) %>
-      <li>Hours: <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
-    </ul>
-  </li>
+<ul>
   <li>
-    Reviews:
+    <u><strong>Details:</strong></u>
+    <ul>
+      <li>
+        <strong>City: </strong> <%= currentStand.city %>
+      </li>
+      <li>
+        <strong>Price: </strong> <%= currentStand.price %>
+      </li>
+      <li>
+      <strong>Days Open:</strong>
+      <% currentStand.day.forEach((day) => { %>
+        <ul><li><%= day %></li></ul>
+      <% }) %>
+        <li><strong>Hours: </strong> <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
+      </ul>
+    </li>
+</ul>
+  <li>
+    <u><strong>Reviews:</strong></u>
     <ul>
       <% currentStand.reviews.forEach(review => { %>
-        <li>User: <%= review.username %></li>
+        <li><strong>User: </strong> <%= review.username %></li>
         <li>
           <% for (let i = 0; i < review.rating; i++) { %>
             🌮
           <% } %>
         </li>
-        <li>Comment: <%= review.comment %></li>
+        <li><strong>Comment: </strong> <%= review.comment %></li>
+        <li><strong>Created at:</strong> <%= new Date(review.createdAt).toLocaleString() %></li>
+
+        <% if (review.createdAt.toString() !== review.updatedAt.toString()) { %>
+          <li><strong>Updated at:</strong> <%= new Date(review.updatedAt).toLocaleString() %></li>
+        <% } %>
         <% if (user && user.username === review.username) { %>
           <li>
             <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>

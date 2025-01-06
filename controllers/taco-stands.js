@@ -57,6 +57,8 @@ router.get('/:sId', async (req, res) => {
     user,
     avgRating,
     average,
+    createdAt: currentStand.createdAt,
+    updatedAt: currentStand.updatedAt,
   })
 });
 
