@@ -98,7 +98,7 @@ router.put('/:sId', ensureSignedIn, async (req, res) => {
     req.body.hour = [req.body.hourFrom, req.body.fromPeriod, req.body.hourTo, req.body.toPeriod];
     await stand.updateOne(req.body);
     await stand.save();
-    res.redirect(`/taco-stands`)
+    res.redirect(`/taco-stands/${req.params.sId}`)
   } catch (e) {
     console.log(e);
     res.redirect('/');
