@@ -1,6 +1,6 @@
 <%- include('./partials/header.ejs') %>
 
-<a href="/taco-stands"><button>View all Taco Stands</button></a>
+<a href="/taco-stands" id="vat"><button>View all Taco Stands</button></a>
 <!-- Above renders whether signed in or not -->
 <% if (user) { %>
   <span><%= user.username._id %></span>
@@ -9,8 +9,9 @@
   <a href="/auth/sign-in"><button>Log In</button></a>
 <% } %>
 
-<div>Savor authentic tacos and support your community!</div>
+<img src="/assets/images/logo.jpg" alt="PopTaco's logo of a taco" id="logo">
 
-<!-- <img src="/assets/images/logo.jpg" alt="PopTaco's logo of a taco"> -->
+<div>Savor authentic tacos while supporting your community!</div>
+
 
 <%- include('./partials/footer.ejs') %>

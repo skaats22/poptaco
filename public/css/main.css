@@ -35,9 +35,15 @@ nav a {
   }
 }
 
+#logo {
+  max-width: 35%; /* Make the image width responsive */
+  max-height: auto; /* Maintain aspect ratio */
+}
+
 button {
   border-radius: 8px;
   margin: 1px;
+  
 }
 
 nav span {
@@ -50,6 +56,7 @@ main {
   flex-direction: column;
   align-items: center;
   margin-top: 5vmin;
+  margin-bottom: 5vmin;
 }
 
 form {
