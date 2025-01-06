@@ -20,26 +20,17 @@
   <% }) %><br>
 
   <label for="hour">Hours Open: </label>
-  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" 
-    value="<%= stand.hour[0] %>" required>
+  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" required>
   <div>
-    <input type="radio" name="fromPeriod" id="fromam" value="am" required 
-      <%= stand.hour && stand.hour[1] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="fromPeriod" id="frompm" value="pm" required
-      <%= stand.hour && stand.hour[1] === 'pm' ? 'checked' : '' %>> pm
+    <input type="radio" name="fromPeriod" id="fromam" value="am" required> am
+    <input type="radio" name="fromPeriod" id="frompm" value="pm" required> pm
   </div>
   <label for="to">to </label>
-  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" 
-    value="<%= stand.hour[2] %>" required>
+  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" required>
   <div>
-    <input type="radio" name="toPeriod" id="toam" value="am"
-    <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="toPeriod" id="topm" value="pm"
-    <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> pm
+    <input type="radio" name="toPeriod" id="toam" value="am"> am
+    <input type="radio" name="toPeriod" id="topm" value="pm"> pm
   </div>
-
-  <button type="submit">Update Taco Stand</button>
-
 
   <button type="submit">Add Taco Stand</button>
 

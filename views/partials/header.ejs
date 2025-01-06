@@ -15,6 +15,7 @@
     <a href="/taco-stands">All Taco Stands</a>
     <!-- Above renders whether signed in or not -->
      <% if (user) { %>
+      <a href="/users/<%= user._id %>">My Taco Stands</a>
       <a href="/users">Our Community</a>
       <a href="/auth/sign-out">Sign Out</a>
       <span><%= user.username %></span>

@@ -134,6 +134,7 @@ router.post('/', ensureSignedIn, async (req, res) => {
     if (req.body.day) {
       req.body.day = Array.isArray(req.body.day) ? req.body.day : [req.body.day];
     }
+    req.body.hour = [req.body.hourFrom, req.body.fromPeriod, req.body.hourTo, req.body.toPeriod];
     await TacoStand.create(req.body);
     res.redirect('/taco-stands')
   } catch (e) {
