@@ -35,6 +35,11 @@ nav a {
   }
 }
 
+button {
+  border-radius: 8px;
+  margin: 1px;
+}
+
 nav span {
   font-size: 1.5vmin;
   color: lightslategray;
