@@ -3,10 +3,11 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  font-family: 'Fredoka', sans-serif;
 }
 
 nav {
-  background-color: lightblue;
+  background-color: lightgreen;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,10 +18,11 @@ nav {
 }
 
 footer {
-  background-color: lightblue;
-  display: flex;
-  justify-content: space-between;
+  background-color: lightgreen;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  justify-items: center;
   padding: 2vmin;
   font-size: 2vh;
   color: lightslategray;
@@ -39,6 +41,21 @@ nav a {
     background-color: lightslategray;
     color: white;
   }
+}
+
+footer .left {
+  text-align: left;
+  justify-self: start;
+}
+
+footer .center {
+  text-align: center;
+  justify-self: center;
+}
+
+footer .right {
+  text-align: right;
+  justify-self: end;
 }
 
 nav span {

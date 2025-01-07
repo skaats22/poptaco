@@ -1,17 +1,23 @@
 <%- include('./partials/header.ejs') %>
 
-<a href="/taco-stands" id="vat"><button>View all Taco Stands</button></a>
-<!-- Above renders whether signed in or not -->
-<% if (user) { %>
-  <span><%= user.username._id %></span>
-<% } else { %>
-  <a href="/auth/sign-up"><button>Sign Up!</button></a>
-  <a href="/auth/sign-in"><button>Log In</button></a>
-<% } %>
+<link rel="stylesheet" href="/css/home.css">
 
-<img src="/assets/images/logo.jpg" alt="PopTaco's logo of a taco" id="logo">
+<div class="container">
+  <a href="/taco-stands" id="vat"><button>View all Taco Stands</button></a>
+  <img src="/assets/images/logo.jpg" alt="PopTaco's logo of a taco" id="logo">
+  <!-- Above renders whether signed in or not -->
+  <% if (!user) { %>
+    <div id="login">
+      <a href="/auth/sign-up"><button>Sign Up!</button></a>
+      <a href="/auth/sign-in"><button>Log In</button></a>
+    </div>
+  <% } else { %>
+    <a href="/users"><button>Our Community</button></a>
+  <% } %>
+  
+  <p id="tagline">Savor authentic tacos while supporting your community!</p>
+</div>
 
-<div>Savor authentic tacos while supporting your community!</div>
 
 
 <%- include('./partials/footer.ejs') %>

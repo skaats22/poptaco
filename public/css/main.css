@@ -35,15 +35,8 @@ nav a {
   }
 }
 
-h1 {
-  padding: 1px;
-  margin: 5px;
-}
 
-#logo {
-  max-width: 50vh;
-  max-height: auto;
-}
+
 
 button {
   border-radius: 8px;
