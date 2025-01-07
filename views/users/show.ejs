@@ -9,13 +9,15 @@
     <% } %>
   <% }); %>
 
-  <% if (user && userCreated === true) { %>
-    <% stands.forEach((element) => { %>
+  <% stands.forEach((element) => { %>
+    <% if (userCreated && element.owner.toString() === user._id.toString()) { %>
       <li>
         <a href="/taco-stands/<%= element._id %>"><%= element.name %></a>
       </li>
-    <% }) %>
-  <% } else { %>
+    <% } %>
+  <% }) %>
+
+  <% if (userCreated === false) { %>
     <p>This user has not created any Taco Stands.</p>
   <% } %>
  </ul>

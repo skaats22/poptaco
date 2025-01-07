@@ -38,6 +38,7 @@
       <% currentStand.reviews.forEach(review => { %>
         <li><strong>User: </strong> <%= review.username %></li>
         <li>
+          <strong>Rating: </strong>
           <% for (let i = 0; i < review.rating; i++) { %>
             🌮
           <% } %>
