@@ -44,10 +44,11 @@
           <% } %>
         </li>
         <li><strong>Comment: </strong> <%= review.comment %></li>
-        <li><strong>Created at:</strong> <%= new Date(review.createdAt).toLocaleString() %></li>
-
-        <% if (review.createdAt.toString() !== review.updatedAt.toString()) { %>
-          <li><strong>Updated at:</strong> <%= new Date(review.updatedAt).toLocaleString() %></li>
+        
+        <% if (review.createdAt.toString() === review.updatedAt.toString()) { %>
+          <li><strong>Created at:</strong> <%= new Date(review.createdAt).toLocaleString() %></li><br>
+          <% } else { %>
+            <li><strong>Updated at:</strong> <%= new Date(review.updatedAt).toLocaleString() %></li><br>
         <% } %>
         <% if (user && user.username === review.username) { %>
           <li>
@@ -56,7 +57,7 @@
           <form action="/taco-stands/<%= currentStand._id %>/reviews?_method=DELETE" method="POST">
             <input type="hidden" name="reviewId" value="<%= review._id %>">
             <button type="submit">Delete Review</button>
-          </form>
+          </form><br>
           <% } %>
         <% }) %>
       </ul>
