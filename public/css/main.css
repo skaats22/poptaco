@@ -35,9 +35,14 @@ nav a {
   }
 }
 
+h1 {
+  padding: 1px;
+  margin: 5px;
+}
+
 #logo {
-  max-width: 35%; /* Make the image width responsive */
-  max-height: auto; /* Maintain aspect ratio */
+  max-width: 50vh;
+  max-height: auto;
 }
 
 button {
