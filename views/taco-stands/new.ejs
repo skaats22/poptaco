@@ -1,35 +1,37 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/new.css">
+
 <form action="/taco-stands" method="POST">
   
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name" required>
+  <label class="aLabel" for="name">Name: </label>
+  <input type="text" name="name" id="name" class="gLabel" required>
 
-  <label for="city">City: </label>
-  <input type="text" name="city" id="city" required>
+  <label class="aLabel" for="city">City: </label>
+  <input type="text" name="city" id="city" class="gLabel" required>
 
-  <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price" required>
+  <label class="aLabel" for="price">Price ($-$$$): </label>
+  <input type="text" name="price" id="price" class="gLabel" pattern="^\$\$?\$?" required>
 
-  <label for="day">Days Open: </label><br>
+  <label class="aLabel" for="day">Days Open: </label><br>
   <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
   <% days.forEach ((day) => { %>
     <div>
-      <input type="checkbox" name="day" value="<%= day %>" id="day"><%= day %>
+      <input class="gLabel" type="checkbox" name="day" value="<%= day %>" id="day"><%= day %>
     </div>
   <% }) %><br>
 
-  <label for="hour">Hours Open: </label>
-  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" required>
+  <label class="aLabel" for="hour">Hours Open to Close: </label><br>
   <div>
-    <input type="radio" name="fromPeriod" id="fromam" value="am" required> am
-    <input type="radio" name="fromPeriod" id="frompm" value="pm" required> pm
+  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" class="gLabel" required>
+    <input type="radio" name="fromPeriod" id="fromam" value="am" class="gLabel" class="gLabel" required> am
+    <input type="radio" name="fromPeriod" id="frompm" value="pm" class="gLabel" class="gLabel" required> pm
+    <label class="aLabel" id="to" for="to"> </label>
   </div>
-  <label for="to">to </label>
-  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" required>
   <div>
-    <input type="radio" name="toPeriod" id="toam" value="am"> am
-    <input type="radio" name="toPeriod" id="topm" value="pm"> pm
+  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" class="gLabel" required>
+    <input type="radio" name="toPeriod" id="toam" value="am" class="gLabel"> am
+    <input type="radio" name="toPeriod" id="topm" value="pm" class="gLabel"> pm
   </div>
 
   <button type="submit">Add Taco Stand</button>

@@ -9,7 +9,7 @@
   <input type="text" name="city" id="city" value="<%=stand.city%>">
 
   <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price" value="<%= stand.price %>">
+  <input type="text" name="price" id="price" pattern="^\$\$?\$?" value="<%= stand.price %>">
 
   <label for="day">Days Open: </label><br>
   <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
