@@ -1,0 +1,70 @@
+body {
+  background-color: lightpink;
+}
+
+button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 1.5vmin;
+  border-radius: 1vmin;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    color: gray;
+    background-color: lightslategray;
+    color: white;
+    font-size: 20px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vmin;
+  margin-bottom: 5vmin;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2vmin;
+}
+
+form * {
+  padding: 1vmin;
+  border-radius: 1vmin;
+}
+
+input,
+textarea,
+select {
+  border: 0.3vmin solid black;
+}
+
+form button[type='submit'] {
+  grid-column: span 2;
+}
+
+.gLabel {
+  font-size: 20px;
+}
+
+.aLabel {
+  font-size: 20px;
+}
+
+#hourFrom {
+  grid-column: 1;
+  width: 4ch;
+}
+
+#hourTo {
+  grid-column: 1;
+  width: 4ch;
+}
+
+#to {
+  text-align: right;
+}

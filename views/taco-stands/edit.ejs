@@ -1,43 +1,45 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/edit.css">
+
 <form action="/taco-stands/<%= stand._id %>?_method=PUT" method="POST">
   
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name" value="<%=stand.name%>">
+  <label class="aLabel" for="name">Name: </label>
+  <input type="text" name="name" id="name" class="gLabel" value="<%=stand.name%>">
 
-  <label for="city">City: </label>
-  <input type="text" name="city" id="city" value="<%=stand.city%>">
+  <label class="aLabel" for="city">City: </label>
+  <input type="text" name="city" id="city" class="gLabel" value="<%=stand.city%>">
 
-  <label for="price">Price ($-$$$): </label>
-  <input type="text" name="price" id="price" pattern="^\$\$?\$?" value="<%= stand.price %>">
+  <label class="aLabel" for="price">Price ($-$$$): </label>
+  <input type="text" name="price" id="price" pattern="^\$\$?\$?" class="gLabel" value="<%= stand.price %>">
 
-  <label for="day">Days Open: </label><br>
+  <label class="aLabel" for="day">Days Open: </label><br>
   <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
   <% days.forEach ((day) => { %>
     <div>
-      <input type="checkbox" name="day" value="<%= day %>" id="day"
+      <input type="checkbox" name="day" class="gLabel" value="<%= day %>" id="day"
         <%= stand.day && stand.day.includes(day) ? 'checked' : '' %>>
       <%= day %>
     </div>
   <% }) %><br>
   
 
-  <label for="hour">Hours Open: </label>
+  <label class="aLabel" for="hour">Hours Open to Close: </label><br>
+  <div>
   <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" 
-    value="<%= stand.hour[0] %>" required>
-  <div>
-    <input type="radio" name="fromPeriod" id="fromam" value="am" required 
+    value="<%= stand.hour[0] %>" class="gLabel" required>
+    <input type="radio" name="fromPeriod" id="fromam" class="gLabel" value="am" required 
       <%= stand.hour && stand.hour[1] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="fromPeriod" id="frompm" value="pm" required
+    <input type="radio" name="fromPeriod" id="frompm" class="gLabel" value="pm" required
       <%= stand.hour && stand.hour[1] === 'pm' ? 'checked' : '' %>> pm
+      <label class="aLabel" for="to"> </label>
   </div>
-  <label for="to">to </label>
-  <input type="number" name="hourTo" id="hourTo" min="'1" max="12" 
-    value="<%= stand.hour[2] %>" required>
   <div>
-    <input type="radio" name="toPeriod" id="toam" value="am"
+  <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" 
+    value="<%= stand.hour[2] %>" required>
+    <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am"
     <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="toPeriod" id="topm" value="pm"
+    <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm"
     <%= stand.hour && stand.hour[3] === 'pm' ? 'checked' : '' %>> pm
   </div>
 
