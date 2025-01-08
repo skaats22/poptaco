@@ -17,8 +17,8 @@
         <u>City</u>: <%= currentStand.city %>
       </li>
       <li>
-      <u>Days Open</u>: 
-      <% currentStand.day.forEach((day) => { %>
+        <u>Days Open</u>: 
+        <% currentStand.day.forEach((day) => { %>
         <ul><li><%= day %></li></ul>
       <% }) %>
         <li><u>Hours</u>: <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
