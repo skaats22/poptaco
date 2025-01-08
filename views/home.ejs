@@ -7,13 +7,13 @@
   <img src="/assets/images/logo.jpg" alt="PopTaco's logo of a taco" id="logo">
   <!-- Above renders whether signed in or not -->
   <% if (!user) { %>
-    <div id="login">
-      <a href="/auth/sign-up"><button>Sign Up!</button></a>
-      <a href="/auth/sign-in"><button>Log In</button></a>
-    </div>
+    <div>
+      <a href="/auth/sign-up"><button class="login">Sign Up!</button></a>
+      <a href="/auth/sign-in"><button class="login">Log In</button></a>
   <% } else { %>
-    <a href="/users"><button>Our Community</button></a>
+      <a href="/users"><button class="login">Our Community</button></a>
   <% } %>
+    </div>
   
   <p id="tagline">Savor authentic tacos while supporting your community!</p>
 </div>

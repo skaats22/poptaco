@@ -15,16 +15,21 @@
   padding: 10px;
 }
 
+body {
+  background-color: lightpink;
+}
+
 .review-info {
   border: 1px solid black;
   padding: 10px;
-  
+  background-color: pink;
 }
 
 .comment {
   border: 1px solid black;
   padding: 10px;
   grid-column: 2;
+  background-color: lightgray;
 }
 
 .edit {
@@ -43,11 +48,51 @@ h3 {
 }
 
 button {
+  text-decoration: none;
+  color: slategray;
+  background-color: white;
+  padding: 1.5vmin;
+  border-radius: 1vmin;
   cursor: pointer;
+  border: none;
+  margin: 5px;
+  &:hover {
+    color: gray;
+    background-color: lightslategray;
+    color: white;
+    font-size: 20px;
+  }
+}
+
+#price {
+  text-align: center;
+  font-size: 25px;
+}
+
+.editB-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.editR {
+  text-decoration: none;
   padding: 5px;
-  margin: 0;
   font-size: 14px;
-  border-radius: 10px;
+  color: slategray;
+  background-color: white;
+  border-radius: 1vmin;
+  cursor: pointer;
+  border: none;
+  margin: 0; /* Remove additional margin */
+}
+
+.editR:hover {
+  color: gray;
+  background-color: lightslategray;
+  color: white;
+  font-size: 16px;
 }
 
 .rating {

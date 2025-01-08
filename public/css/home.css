@@ -1,8 +1,11 @@
+body {
+  background-color: lightpink;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-auto-flow: row dense;
   justify-items: center;
   align-items: center;
   height: 60%;
@@ -18,9 +21,18 @@ p {
   text-align: center;
 }
 
+#vat {
+  justify-self: end;
+}
+
 #logo {
   max-width: 50vh;
   height: auto;
+}
+
+.container > div {
+  grid-column: 3;
+  justify-self: start;
 }
 
 @media (max-width: 640px) {
@@ -29,7 +41,6 @@ p {
   }
 }
 
-
 @media (max-width: 480px) {
   .container {
     grid-template-columns: 1fr;
@@ -37,19 +48,24 @@ p {
 }
 
 button {
+  text-decoration: none;
+  color: slategray;
+  background-color: white;
+  padding: 1.5vmin;
+  border-radius: 1vmin;
   cursor: pointer;
-  padding: 1vh;
-  margin: 0;
-  font-size: 20px;
-  border-radius: 10px;
+  border: none;
+  &:hover {
+    color: gray;
+    background-color: lightslategray;
+    color: white;
+    font-size: 20px;
+  }
 }
 
 #tagline {
   grid-column: 2;
   grid-row: 2;
   text-align: center;
-}
-
-button:hover {
-  background-color: #e0e0e0;
+  font-size: 24px;
 }
