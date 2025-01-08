@@ -1,0 +1,50 @@
+.stands {
+  display: grid;
+  grid-template-columns: 50vh 50vh;
+  grid-template-rows: auto;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.stands > * {
+  border: 1px solid black; 
+  padding: 10px;
+  margin: 0;
+}
+
+button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 1vmin;
+  border-radius: 1vmin;
+
+  &:hover {
+    color: gray;
+    background-color: lightslategray;
+    color: white;
+  }
+}
+
+.name {
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  font-size: 22px;
+}
+
+.header {
+  text-decoration: underline;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+div {
+  justify-content: center;
+  text-align: center;
+}
+
+.new {
+  text-align: center;
+}

@@ -1,24 +1,35 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/allstands.css">
 
-<ul>
-  <% stands.forEach((element) => { %>
-    <li>
-      <a href="/taco-stands/<%= element._id %>"><%= element.name %></a> 
-      <% if (element.averageRating !== "No ratings yet") { %>
-        (<%= element.averageRating %> 🌮, <%= element.numberOfRatings %> reviews)
-      <% } else { %>
-        (<%= element.averageRating %>)
-      <% } %>
-    </li><br>
-    <% }) %>
-</ul>
+<div class="stands">
+  <p class="header">Name</p>
+  <p class="header">Rating</p>
+    <% stands.forEach((element) => { %>
+        <a href="/taco-stands/<%= element._id %>" class="name"><%= element.name %></a> 
+        <% if (element.averageRating !== "No ratings yet") { %>
+          <div class="rating">
+            <% for (let i = 0; i < element.averageRating; i++) { %>
+              🌮
+            <% } %> 
+            (<%= element.numberOfRatings %> reviews)
+          </div>
+        <% } else { %>
+          <div class="noRating">
+            (<%= element.averageRating %>)
+            <% } %>
+            <% }) %>
+          </div>
+</div>
 
-<% if (user) { %>
-  <a href="/taco-stands/new">Add a new Taco Stand</a>
-<% } else { %>
-  <a href="/auth/sign-in"><button>Log in to add a Taco Stand!</button></a>
-  <a href="/auth/sign-up"><button>Sign up to add a Taco Stand!</button></a>
-<% } %>
+<br>
+<div class="new">
+  <% if (user) { %>
+    <a href="/taco-stands/new">Add a new Taco Stand</a>
+  <% } else { %>
+    <a href="/auth/sign-in"><button>Log in to add a Taco Stand!</button></a>
+    <a href="/auth/sign-up"><button>Sign up to add a Taco Stand!</button></a>
+  <% } %>
+</div>
 
 <%- include('../partials/footer.ejs') %>

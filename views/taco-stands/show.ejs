@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/allstands.css">
+
 <% if (avgRating.length > 0) { %>
   <div><%= ratingD %> (<%=average%>, <%= avgRating.length %> reviews)</div>
   <% } else { %>
@@ -13,9 +15,8 @@
   </form>
 <% } %>
 
-<ul>
-  <li>
-    <u><strong>Details:</strong></u>
+<li>
+  <u><strong>Details:</strong></u>
     <ul>
       <li>
         <strong>City: </strong> <%= currentStand.city %>
@@ -30,8 +31,7 @@
       <% }) %>
         <li><strong>Hours: </strong> <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
       </ul>
-    </li>
-</ul>
+  </li>
   <li>
     <u><strong>Reviews:</strong></u>
     <ul>

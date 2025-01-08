@@ -15,6 +15,7 @@ nav {
   font-size: 2vh;
   color: lightslategray;
   margin: 0;
+  min-width: 640px;
 }
 
 footer {
@@ -27,6 +28,7 @@ footer {
   font-size: 2vh;
   color: lightslategray;
   margin: 0;
+  min-width: 640px;
 }
 
 nav a {
@@ -56,6 +58,10 @@ footer .center {
 footer .right {
   text-align: right;
   justify-self: end;
+}
+
+h1 {
+  text-align: center;
 }
 
 nav span {
