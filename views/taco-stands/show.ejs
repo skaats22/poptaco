@@ -1,68 +1,69 @@
 <%- include('../partials/header.ejs') %>
 
-<link rel="stylesheet" href="/css/allstands.css">
+<link rel="stylesheet" href="/css/show.css">
 
 <% if (avgRating.length > 0) { %>
-  <div><%= ratingD %> (<%=average%>, <%= avgRating.length %> reviews)</div>
+  <div class="rating"><%= ratingD %> (<%=average%>, <%= avgRating.length %> reviews)</div>
   <% } else { %>
-  <div>(No ratings yet)</div>
+  <div class="rating">(No ratings yet)</div>
 <% } %>
 
-<% if (user && currentStand.owner.toString() === user._id.toString()) { %>
-  <a href="/taco-stands/<%= currentStand._id %>/edit">Edit Taco Stand</a>
-  <form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Taco Stand</button>
-  </form>
-<% } %>
-
-<li>
-  <u><strong>Details:</strong></u>
+<div class="details">
     <ul>
       <li>
-        <strong>City: </strong> <%= currentStand.city %>
+        <u>Price</u>: <%= currentStand.price %>
       </li>
       <li>
-        <strong>Price: </strong> <%= currentStand.price %>
+        <u>City</u>: <%= currentStand.city %>
       </li>
       <li>
-      <strong>Days Open:</strong>
+      <u>Days Open</u>: 
       <% currentStand.day.forEach((day) => { %>
         <ul><li><%= day %></li></ul>
       <% }) %>
-        <li><strong>Hours: </strong> <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
+        <li><u>Hours</u>: <%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%></li>
       </ul>
   </li>
-  <li>
-    <u><strong>Reviews:</strong></u>
-    <ul>
-      <% currentStand.reviews.forEach(review => { %>
-        <li><strong>User: </strong> <%= review.username %></li>
-        <li>
-          <strong>Rating: </strong>
-          <% for (let i = 0; i < review.rating; i++) { %>
-            🌮
-          <% } %>
-        </li>
-        <li><strong>Comment: </strong> <%= review.comment %></li>
-        
-        <% if (review.createdAt.toString() === review.updatedAt.toString()) { %>
-          <li><strong>Created at:</strong> <%= new Date(review.createdAt).toLocaleString() %></li><br>
-          <% } else { %>
-            <li><strong>Updated at:</strong> <%= new Date(review.updatedAt).toLocaleString() %></li><br>
+</div>
+
+<div class="edit">
+  <% if (user && currentStand.owner.toString() === user._id.toString()) { %>
+    <a href="/taco-stands/<%= currentStand._id %>/edit"><button>Edit Taco Stand</button></a>
+    <form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete Taco Stand</button>
+    </form>
+  <% } %>
+</div>
+
+<br>
+<h3><u>Reviews</u>:</h3>
+<br>
+
+<div class="reviews">
+  <% currentStand.reviews.forEach(review => { %>
+    <div class="review-info">
+      <u><%= review.username %></u><br>
+      <% for (let i = 0; i < review.rating; i++) { %>
+        🌮
+      <% } %><br>
+      <% if (review.createdAt.toString() === review.updatedAt.toString()) { %>
+        <%= new Date(review.createdAt).toLocaleString() %><br>
+      <% } else { %>
+        <%= new Date(review.updatedAt).toLocaleString() %><br>
+      <% } %>
+      <% if (user && user.username === review.username) { %>
+        <a href="/taco-stands/<%= currentStand._id %>/reviews/edit"><button>Edit Review</button></a>
+        <form action="/taco-stands/<%= currentStand._id %>/reviews?_method=DELETE" method="POST">
+          <input type="hidden" name="reviewId" value="<%= review._id %>">
+          <button type="submit">Delete Review</button>
+        </form>
         <% } %>
-        <% if (user && user.username === review.username) { %>
-          <li>
-            <a href="/taco-stands/<%= currentStand._id %>/reviews/edit">Edit Review</a>
-          </li>
-          <form action="/taco-stands/<%= currentStand._id %>/reviews?_method=DELETE" method="POST">
-            <input type="hidden" name="reviewId" value="<%= review._id %>">
-            <button type="submit">Delete Review</button>
-          </form><br>
-          <% } %>
-        <% }) %>
-      </ul>
-  </li>
-</ul>
+      </div>
+    <div class="comment">
+      <%= review.comment %>
+    </div>
+  <% }) %>
+</div>
 
 <% let userHasReviewed = false %>
 
@@ -72,11 +73,13 @@
   <% } %>
 <% }) %>
 
-<% if (user && !userHasReviewed) { %>
-  <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
-<% } else if (!user) { %>
-  <p><a href="/login">Please log in to add a review.</a></p>
-<% } %>
+<div id="login">
+  <% if (user && !userHasReviewed) { %>
+    <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
+  <% } else if (!user) { %>
+    <p><a href="/login">Please log in to add a review.</a></p>
+  <% } %>
+</div>
 
 
 

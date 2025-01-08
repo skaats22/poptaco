@@ -1,0 +1,55 @@
+.details {
+  display: grid;
+  grid-template-columns: 50vh 50vh;
+  grid-template-rows: auto;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: 50vh 50vh;
+  grid-template-rows: auto;
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px;
+}
+
+.review-info {
+  border: 1px solid black;
+  padding: 10px;
+  
+}
+
+.comment {
+  border: 1px solid black;
+  padding: 10px;
+  grid-column: 2;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px;
+  margin: 0;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.rating {
+  text-align: center;
+}
