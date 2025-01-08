@@ -76,7 +76,7 @@ router.get('/:sId/reviews/edit', ensureSignedIn, async (req, res) => {
   const stand = await TacoStand.findById(req.params.sId);
   const currentUser = req.user;
   res.render('reviews/edit.ejs', {
-    title: `Edit ${stand.name}`,
+    title: `Edit Review for ${stand.name}`,
     stand,
     currentUser,
   })

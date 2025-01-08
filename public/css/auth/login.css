@@ -46,3 +46,8 @@ select {
 form button[type='submit'] {
   grid-column: span 2;
 }
+
+#delete {
+  grid-column: span 2;
+  margin: 5px;
+}

@@ -25,24 +25,3 @@ main {
   margin-top: 5vmin;
   margin-bottom: 5vmin;
 }
-
-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 2vmin;
-}
-
-form * {
-  padding: 1vmin;
-  border-radius: 1vmin;
-}
-
-input,
-textarea,
-select {
-  border: 0.3vmin solid black;
-}
-
-form button[type='submit'] {
-  grid-column: span 2;
-}

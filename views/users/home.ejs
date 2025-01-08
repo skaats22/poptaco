@@ -1,8 +1,15 @@
 <%- include('../partials/header.ejs') %>
 
-<% users.forEach((element) => { %>
-  <p><%= element.username %></p>
-  <a href="/users/<%= element._id%>">View <%= element.username %>'s Taco Stands</a>
-<% }) %>
+<link rel="stylesheet" href="/css/users/show.css">
+
+<div class="container">
+  <% users.forEach((element) => { %>
+  
+    <div class="names">- <%= element.username %></div>
+    <div>
+      - <a href="/users/<%= element._id%>">View <%= element.username %>'s Taco Stands</a>
+    </div>
+  <% }) %>
+</div>
 
 <%- include('../partials/footer.ejs') %>

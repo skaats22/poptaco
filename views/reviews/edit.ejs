@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/reviews/edit.css">
+
 <% stand.reviews.forEach((review) => { %>
   <% if (review.username === currentUser.username) { %>
     <form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
@@ -17,7 +19,7 @@
     </form>
   
     <form action="/taco-stands/<%= stand._id %>/reviews?_method=DELETE" method="POST">
-      <button type="submit">Delete Review</button>
+      <button type="submit" id="delete">🗑️ Delete Review 🗑️</button>
     </form>
     <% } %>
   <% }) %>

@@ -1,8 +1,9 @@
 <%- include('../partials/header.ejs') %>
 
+<link rel="stylesheet" href="/css/users/show.css">
+
 <% let userCreated = false; %>
 
-<ul>
   <% stands.forEach((element) => { %>
     <% if (element.owner.toString() === user._id.toString()) { %>
       <% userCreated = true %>
@@ -11,16 +12,12 @@
 
   <% stands.forEach((element) => { %>
     <% if (userCreated && element.owner.toString() === user._id.toString()) { %>
-      <li>
-        <a href="/taco-stands/<%= element._id %>"><%= element.name %></a>
-      </li>
+      <a href="/taco-stands/<%= element._id %>" class="stands">- <%= element.name %></a>
     <% } %>
   <% }) %>
 
   <% if (userCreated === false) { %>
-    <p>This user has not created any Taco Stands.</p>
+    <p class="stands">This user has not created any Taco Stands.</p>
   <% } %>
- </ul>
-    
 
 <%- include('../partials/footer.ejs') %>
