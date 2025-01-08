@@ -11,8 +11,8 @@
   grid-template-columns: 50vh 50vh;
   grid-template-rows: auto;
   justify-content: center; 
-  align-items: center; 
   padding: 10px;
+  align-items: stretch;
 }
 
 body {
@@ -20,16 +20,24 @@ body {
 }
 
 .review-info {
-  border: 1px solid black;
+  border-width: 5px 2px 5px 5px; 
+  border-style: solid;
+  border-color: black;
   padding: 10px;
-  background-color: pink;
+  background-color: lightgray;
 }
 
 .comment {
-  border: 1px solid black;
+  border-width: 5px 5px 5px 2px; 
+  border-style: solid;
+  border-color: black;
   padding: 10px;
   grid-column: 2;
-  background-color: lightgray;
+  background-color: lightblue;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .edit {
@@ -85,7 +93,7 @@ button {
   border-radius: 1vmin;
   cursor: pointer;
   border: none;
-  margin: 0; /* Remove additional margin */
+  margin: 0;
 }
 
 .editR:hover {

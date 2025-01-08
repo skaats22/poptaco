@@ -25,7 +25,7 @@
     <% if (user && currentStand.owner.toString() === user._id.toString()) { %>
       <a href="/taco-stands/<%= currentStand._id %>/edit"><button>Edit Taco Stand</button></a>
       <form action="/taco-stands/<%= currentStand._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Taco Stand</button>
+        <button type="submit">🗑️ Delete Taco Stand</button>
       </form>
     <% } %>
   </div>
