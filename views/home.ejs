@@ -8,8 +8,8 @@
   <!-- Above renders whether signed in or not -->
   <% if (!user) { %>
     <div>
-      <a href="/auth/sign-up"><button class="login">Sign Up!</button></a>
       <a href="/auth/sign-in"><button class="login">Log In</button></a>
+      <a href="/auth/sign-up"><button class="login">Sign Up!</button></a>
     </div>
   <% } else { %>
     <div>

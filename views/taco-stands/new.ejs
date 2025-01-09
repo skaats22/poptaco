@@ -9,11 +9,14 @@
 
   <label class="aLabel" for="city"><u>City: </u> </label>
   <input type="text" name="city" id="city" class="gLabel" required>
+  
+  <label class="aLabel" for="state"><u>State: </u> </label>
+  <input type="text" name="state" id="state" class="gLabel" minlength="2" maxlength="2" style="text-transform: uppercase;" required>
 
   <label class="aLabel" for="crossroads"><u>Street Intersection: </u></label> 
   <div id="cr1">
     <input type="text" name="crossroads" class="gLabel" required>
-    <label class="aLabel" id="and" for="to"> & </label>
+    <label class="aLabel" id="and">&</label>
   </div>
 
   <input type="text" name="crossroads" id="cr2" class="gLabel" required>
@@ -38,8 +41,8 @@
   </div>
   <div>
   <input type="number" name="hourTo" id="hourTo" min="'1" max="12" class="gLabel" required>
-    <input type="radio" name="toPeriod" id="toam" value="am" class="gLabel"> am
-    <input type="radio" name="toPeriod" id="topm" value="pm" class="gLabel"> pm
+    <input type="radio" name="toPeriod" id="toam" value="am" class="gLabel" required> am
+    <input type="radio" name="toPeriod" id="topm" value="pm" class="gLabel" required> pm
   </div>
 
   <button type="submit">Add Taco Stand</button>

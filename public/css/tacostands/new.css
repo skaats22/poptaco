@@ -84,3 +84,11 @@ input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
 }
+
+#and {
+  text-align: right;
+}
+
+#state {
+  width: 4ch;
+}

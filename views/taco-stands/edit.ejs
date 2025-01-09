@@ -10,6 +10,10 @@
   <label class="aLabel" for="city">City: </label>
   <input type="text" name="city" id="city" class="gLabel" value="<%=stand.city%>">
 
+  <label class="aLabel" for="state"><u>State: </u> </label>
+  <input type="text" name="state" id="state" class="gLabel" minlength="2" maxlength="2" 
+    value="<%= stand.state %>" style="text-transform: uppercase;" required>
+
   <label class="aLabel" for="crossroads"><u>Street Intersection: </u></label> 
   <div id="cr1">
     <input type="text" name="crossroads" class="gLabel" value="<%= stand.crossroads[0] %>" required>
@@ -44,9 +48,9 @@
     <div>
       <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" value="<%= stand.hour[2] %>"
         required>
-      <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am" <%=stand.hour &&
+      <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am" required <%=stand.hour &&
         stand.hour[3]==='am' ? 'checked' : '' %>> am
-      <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm" <%=stand.hour &&
+      <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm" required <%=stand.hour &&
         stand.hour[3]==='pm' ? 'checked' : '' %>> pm
     </div>
 
