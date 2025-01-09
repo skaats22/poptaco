@@ -10,6 +10,14 @@
   <label class="aLabel" for="city">City: </label>
   <input type="text" name="city" id="city" class="gLabel" value="<%=stand.city%>">
 
+  <label class="aLabel" for="crossroads"><u>Street Intersection: </u></label> 
+  <div id="cr1">
+    <input type="text" name="crossroads" class="gLabel" value="<%= stand.crossroads[0] %>" required>
+    <label class="aLabel" id="and" for="to"> & </label>
+  </div>
+
+  <input type="text" name="crossroads" id="cr2" class="gLabel" value="<%= stand.crossroads[1] %>" required>
+
   <label class="aLabel" for="price">Price ($-$$$): </label>
   <input type="text" name="price" id="price" pattern="^\$\$?\$?" class="gLabel" value="<%= stand.price %>">
 

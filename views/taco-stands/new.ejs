@@ -4,16 +4,24 @@
 
 <form action="/taco-stands" method="POST">
   
-  <label class="aLabel" for="name">Name: </label>
+  <label class="aLabel" for="name"><u>Name: </u></label>
   <input type="text" name="name" id="name" class="gLabel" required>
 
-  <label class="aLabel" for="city">City: </label>
+  <label class="aLabel" for="city"><u>City: </u> </label>
   <input type="text" name="city" id="city" class="gLabel" required>
 
-  <label class="aLabel" for="price">Price ($-$$$): </label>
+  <label class="aLabel" for="crossroads"><u>Street Intersection: </u></label> 
+  <div id="cr1">
+    <input type="text" name="crossroads" class="gLabel" required>
+    <label class="aLabel" id="and" for="to"> & </label>
+  </div>
+
+  <input type="text" name="crossroads" id="cr2" class="gLabel" required>
+
+  <label class="aLabel" for="price"><u>Price ($-$$$):</u> </label>
   <input type="text" name="price" id="price" class="gLabel" pattern="^\$\$?\$?" required>
 
-  <label class="aLabel" for="day">Days Open: </label><br>
+  <label class="aLabel" for="day"><u>Days Open: </u></label><br>
   <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
   <% days.forEach ((day) => { %>
     <div>
@@ -21,11 +29,11 @@
     </div>
   <% }) %><br>
 
-  <label class="aLabel" for="hour">Hours Open to Close: </label><br>
+  <label class="aLabel" for="hour"><u>Hours Open to Close: </u></label><br>
   <div>
   <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" class="gLabel" required>
-    <input type="radio" name="fromPeriod" id="fromam" value="am" class="gLabel" class="gLabel" required> am
-    <input type="radio" name="fromPeriod" id="frompm" value="pm" class="gLabel" class="gLabel" required> pm
+    <input type="radio" name="fromPeriod" id="fromam" value="am" class="gLabel" required> am
+    <input type="radio" name="fromPeriod" id="frompm" value="pm" class="gLabel" required> pm
     <label class="aLabel" id="to" for="to"> </label>
   </div>
   <div>

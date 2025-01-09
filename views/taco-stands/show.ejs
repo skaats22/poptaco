@@ -15,6 +15,9 @@
       <u>City</u>: <%= currentStand.city %>
     </li>
     <li>
+      <u>Street Intersection</u>: <%= `${currentStand.crossroads[0]} & ${currentStand.crossroads[1]}` %>
+    </li>
+    <li>
       <u>Days Open</u>: 
       <% currentStand.day.forEach((day) => { %>
       <ul><li><%= day %> (<%= `${currentStand.hour[0]}${currentStand.hour[1]} - ${currentStand.hour[2]}${currentStand.hour[3]}`%>)</li></ul>

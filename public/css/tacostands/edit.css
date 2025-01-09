@@ -28,8 +28,10 @@ main {
 
 form {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 40vh 40vh;
+  grid-template-rows: auto;
   gap: 2vmin;
+  align-items: center;
 }
 
 form * {
@@ -67,4 +69,23 @@ form button[type='submit'] {
 
 #to {
   text-align: right;
+}
+
+
+#cr1 {
+  grid-column: 1;
+}
+
+#cr2 {
+  grid-column: 2;
+}
+
+input[type="radio"] {
+  width: .8rem;
+  height: .8rem;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
 }

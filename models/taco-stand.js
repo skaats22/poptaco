@@ -33,6 +33,10 @@ const tacoStandSchema = new Schema({
     type: String,
     required: true,
   },
+  crossroads: {
+    type: [String],
+    required: true,
+  },
   price: {
     type: String,
     required: false,
