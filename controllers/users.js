@@ -13,7 +13,7 @@ router.get('/', ensureSignedIn, async (req, res) => {
   const users = await User.find();
   res.render('users/home.ejs',
     {
-      title: 'Our Community',
+      title: "PopTaco's Community",
       users,
     }
   );

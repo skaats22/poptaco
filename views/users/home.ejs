@@ -4,11 +4,10 @@
 
 <div class="container">
   <% users.forEach((element) => { %>
-  
-    <div class="names">- <%= element.username %></div>
+    <div class="names">🌮 <%= element.username %></div>
     <div>
-      - <a href="/users/<%= element._id%>">View <%= element.username %>'s Taco Stands</a>
-    </div>
+      <a href="/users/<%= element._id%>"><button>View <%= element.username %>'s Taco Stands</button></a>
+    </div><br>
   <% }) %>
 </div>
 
