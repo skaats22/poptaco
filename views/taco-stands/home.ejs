@@ -5,23 +5,22 @@
 <div class="stands">
   <p class="header">Name</p>
   <p class="header">Rating</p>
+  <p class="header">City</p>
   <% stands.forEach((element)=> { %>
-    <a href="/taco-stands/<%= element._id %>" class="name">
-      <%= element.name %>
-    </a>
+    <a href="/taco-stands/<%= element._id %>" class="name"><%= element.name %></a>
     <% if (element.averageRating !=="No ratings yet" ) { %>
       <div class="rating">
         <% for (let i=0; i < element.averageRating; i++) { %>
           🌮
           <% } %>
-            (<%= element.numberOfRatings %> reviews)
       </div>
       <% } else { %>
         <div class="noRating">
           (<%= element.averageRating %>)
         </div>
         <% } %>
-          <% }) %>
+        <div class="city"><%= element.city %></div>
+        <% }) %>
 </div>
 
 <br>
