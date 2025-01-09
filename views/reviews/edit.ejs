@@ -1,27 +1,27 @@
 <%- include('../partials/header.ejs') %>
 
-<link rel="stylesheet" href="/css/reviews/edit.css">
+  <link rel="stylesheet" href="/css/reviews/edit.css">
 
-<% stand.reviews.forEach((review) => { %>
-  <% if (review.username === currentUser.username) { %>
-    <form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
-    
-      <input type="hidden" name="reviewId" value="<%= review._id %>">
-      
-    
-      <label for="rating">Rating (1-5): </label>
-      <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="1" max="5">
-      
-      <label for="comment">Comment:</label>
-      <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>
-    
-      <button type="submit">Update Review</button>
-    </form>
-  
-    <form action="/taco-stands/<%= stand._id %>/reviews?_method=DELETE" method="POST">
-      <button type="submit" id="delete">🗑️ Delete Review 🗑️</button>
-    </form>
-    <% } %>
-  <% }) %>
+  <% stand.reviews.forEach((review)=> { %>
+    <% if (review.username===currentUser.username) { %>
+      <form action="/taco-stands/<%= stand._id %>/reviews?_method=PUT" method="POST">
+
+        <input type="hidden" name="reviewId" value="<%= review._id %>">
+
+
+        <label for="rating">Rating (1-5): </label>
+        <input type="number" name="rating" id="rating" value="<%=review.rating%>" min="1" max="5">
+
+        <label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required><%=review.comment %></textarea><br>
+
+        <button type="submit">Update Review</button>
+      </form>
+
+      <form action="/taco-stands/<%= stand._id %>/reviews?_method=DELETE" method="POST">
+        <button type="submit" id="delete">🗑️ Delete Review 🗑️</button>
+      </form>
+      <% } %>
+        <% }) %>
 
 <%- include('../partials/footer.ejs') %>

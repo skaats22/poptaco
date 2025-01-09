@@ -3,7 +3,7 @@ const router = express.Router();
 const TacoStand = require('../models/taco-stand.js');
 const User = require('../models/user.js');
 // Middleware to protect seleceted routes
-const ensureSignedIn =  require('../middleware/ensure-signed-in.js');
+const ensureSignedIn = require('../middleware/ensure-signed-in.js');
 
 // All routes start with'/users'
 
@@ -23,9 +23,9 @@ router.get('/', ensureSignedIn, async (req, res) => {
 router.get('/:sId', ensureSignedIn, async (req, res) => {
   const currentUser = await User.findById(req.params.sId);
   const stands = await TacoStand.find({}).populate('name');
-  res.render('users/show.ejs', 
+  res.render('users/show.ejs',
     {
-      title: `${currentUser.username}'s Taco Stands`, 
+      title: `${currentUser.username}'s Taco Stands`,
       user: currentUser,
       stands,
     }

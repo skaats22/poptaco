@@ -10,6 +10,7 @@ button {
   border-radius: 1vmin;
   cursor: pointer;
   border: none;
+
   &:hover {
     color: gray;
     background-color: lightslategray;

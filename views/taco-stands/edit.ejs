@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/css/tacostands/edit.css">
 
 <form action="/taco-stands/<%= stand._id %>?_method=PUT" method="POST">
-  
+
   <label class="aLabel" for="name">Name: </label>
   <input type="text" name="name" id="name" class="gLabel" value="<%=stand.name%>">
 
@@ -14,38 +14,36 @@
   <input type="text" name="price" id="price" pattern="^\$\$?\$?" class="gLabel" value="<%= stand.price %>">
 
   <label class="aLabel" for="day">Days Open: </label><br>
-  <% let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
-  <% days.forEach ((day) => { %>
+  <% let days=['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday' ] %>
+    <% days.forEach ((day)=> { %>
+      <div>
+        <input type="checkbox" name="day" class="gLabel" value="<%= day %>" id="day" <%=stand.day &&
+          stand.day.includes(day) ? 'checked' : '' %>>
+        <%= day %>
+      </div>
+    <% }) %><br>
+
+    <label class="aLabel" for="hour">Hours Open to Close: </label><br>
     <div>
-      <input type="checkbox" name="day" class="gLabel" value="<%= day %>" id="day"
-        <%= stand.day && stand.day.includes(day) ? 'checked' : '' %>>
-      <%= day %>
-    </div>
-  <% }) %><br>
-  
-
-  <label class="aLabel" for="hour">Hours Open to Close: </label><br>
-  <div>
-  <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" 
-    value="<%= stand.hour[0] %>" class="gLabel" required>
-    <input type="radio" name="fromPeriod" id="fromam" class="gLabel" value="am" required 
-      <%= stand.hour && stand.hour[1] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="fromPeriod" id="frompm" class="gLabel" value="pm" required
-      <%= stand.hour && stand.hour[1] === 'pm' ? 'checked' : '' %>> pm
+      <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" value="<%= stand.hour[0] %>"
+        class="gLabel" required>
+      <input type="radio" name="fromPeriod" id="fromam" class="gLabel" value="am" required <%=stand.hour &&
+        stand.hour[1]==='am' ? 'checked' : '' %>> am
+      <input type="radio" name="fromPeriod" id="frompm" class="gLabel" value="pm" required <%=stand.hour &&
+        stand.hour[1]==='pm' ? 'checked' : '' %>> pm
       <label class="aLabel" for="to"> </label>
-  </div>
-  <div>
-  <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" 
-    value="<%= stand.hour[2] %>" required>
-    <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am"
-    <%= stand.hour && stand.hour[3] === 'am' ? 'checked' : '' %>> am
-    <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm"
-    <%= stand.hour && stand.hour[3] === 'pm' ? 'checked' : '' %>> pm
-  </div>
+    </div>
+    <div>
+      <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" value="<%= stand.hour[2] %>"
+        required>
+      <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am" <%=stand.hour &&
+        stand.hour[3]==='am' ? 'checked' : '' %>> am
+      <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm" <%=stand.hour &&
+        stand.hour[3]==='pm' ? 'checked' : '' %>> pm
+    </div>
 
-  <button type="submit">Update Taco Stand</button>
+    <button type="submit">Update Taco Stand</button>
 
 </form>
 
-
-<%- include('../partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>

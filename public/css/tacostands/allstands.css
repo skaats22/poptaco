@@ -6,23 +6,23 @@ body {
   display: grid;
   grid-template-columns: 50vh 50vh;
   grid-template-rows: auto;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 
 }
 
-.stands > * {
-  border: 1px solid black; 
+.stands>* {
+  border: 1px solid black;
   padding: 10px;
   margin: 0;
-  border-width: 1px 1px 1px 1px; 
+  border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: black;
 }
 
 .name {
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 22px;
 }
@@ -52,6 +52,7 @@ button {
   border-radius: 1vmin;
   cursor: pointer;
   border: none;
+
   &:hover {
     color: gray;
     background-color: lightslategray;

@@ -1,15 +1,15 @@
 <%- include('../partials/header.ejs') %>
 
-<link rel="stylesheet" href="/css/auth/signup.css">
+  <link rel="stylesheet" href="/css/auth/signup.css">
 
-<form action="/auth/sign-up" method="POST">
-  <label for="username">Username:</label>
-  <input type="email" name="username" id="username" />
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" />
-  <label for="confirmPassword">Confirm Password:</label>
-  <input type="password" name="confirmPassword" id="confirmPassword" />
-  <button type="submit">SIGN UP</button>
-</form>
+  <form action="/auth/sign-up" method="POST">
+    <label for="username">Username:</label>
+    <input type="email" name="username" id="username" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" />
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword" />
+    <button type="submit">SIGN UP</button>
+  </form>
 
-<%- include('../partials/footer.ejs')%>
+  <%- include('../partials/footer.ejs')%>

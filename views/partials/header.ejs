@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PopTaco</title>
   <link rel="stylesheet" href="/css/nav.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpg" href="../assets/images/logo.jpg" >
+  <link rel="icon" type="image/jpg" href="../assets/images/logo.jpg">
 </head>
 
 <body>
   <nav>
     <a href="/">🌮 PopTaco</a>
     <div>
-    <a href="/taco-stands">All Taco Stands</a>
-    <!-- Above renders whether signed in or not -->
-     <% if (user) { %>
-      <a href="/users/<%= user._id %>">My Taco Stands</a>
-      <a href="/users">Our Community</a>
-      <a href="/auth/sign-out">Sign Out</a>
-      <span><%= user.username %></span>
-     <% } else { %>
-      <a href="/auth/sign-in">Log In</a>
-      <a href="/auth/sign-up">Sign Up</a>
+      <a href="/taco-stands">All Taco Stands</a>
+      <!-- Above renders whether signed in or not -->
+      <% if (user) { %>
+        <a href="/users/<%= user._id %>">My Taco Stands</a>
+        <a href="/users">Our Community</a>
+        <a href="/auth/sign-out">Sign Out</a>
+        <span>
+          <%= user.username %>
+        </span>
+        <% } else { %>
+          <a href="/auth/sign-in">Log In</a>
+          <a href="/auth/sign-up">Sign Up</a>
     </div>
-     <% } %>
+    <% } %>
   </nav>
   <main>
-    <h1><%= title %></h1>
+    <h1>
+      <%= title %>
+    </h1>

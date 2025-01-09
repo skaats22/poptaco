@@ -17,7 +17,7 @@ const reviewSchema = new Schema({
   }
 }, {
   timestamps: true,
-  }
+}
 );
 
 const tacoStandSchema = new Schema({

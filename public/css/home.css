@@ -30,7 +30,7 @@ p {
   height: auto;
 }
 
-.container > div {
+.container>div {
   grid-column: 3;
   justify-self: left;
 }
@@ -55,6 +55,7 @@ button {
   border-radius: 1vmin;
   cursor: pointer;
   border: none;
+
   &:hover {
     color: gray;
     background-color: lightslategray;

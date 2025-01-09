@@ -4,10 +4,10 @@ const TacoStand = require('../models/taco-stand');
 const User = require('../models/user');
 
 // Middleware to protect seleceted routes
-const ensureSignedIn =  require('../middleware/ensure-signed-in');
+const ensureSignedIn = require('../middleware/ensure-signed-in');
 
 // Function for adding emojis based on rating
-function ratingEmojis (count, emoji) {
+function ratingEmojis(count, emoji) {
   return emoji.repeat(count);
 }
 

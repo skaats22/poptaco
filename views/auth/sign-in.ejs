@@ -1,13 +1,13 @@
 <%- include('../partials/header.ejs') %>
 
-<link rel="stylesheet" href="/css/auth/login.css">
+  <link rel="stylesheet" href="/css/auth/login.css">
 
-<form action="/auth/sign-in" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username" />
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" />
-  <button type="submit">Log In</button>
-</form>
+  <form action="/auth/sign-in" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" />
+    <button type="submit">Log In</button>
+  </form>
 
-<%- include('../partials/footer.ejs')%>
+  <%- include('../partials/footer.ejs')%>

@@ -37,6 +37,7 @@ nav a {
   background-color: white;
   padding: 1vmin;
   border-radius: 1vmin;
+
   &:hover {
     color: gray;
     background-color: lightslategray;
