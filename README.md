@@ -1,4 +1,4 @@
-# <p style="text-align:center;">**🤑 Blackjack 🤑**</p>
+# <p style="text-align:center;">**:taco: PopTaco :taco:**</p>
 ## <p style="text-align:center;">[Click here to demo!](https://skaats22.github.io/Blackjack/)</p>
 
 ## :mag: Description
