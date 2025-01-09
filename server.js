@@ -16,12 +16,6 @@ mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-// Configure Express app 
-// app.set(...)
-
-// Mount Middleware
-// app.use(...)
-
 const path = require('path');
 // Serve static files from the "assets" folder
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -68,8 +62,6 @@ app.use(require('./middleware/ensure-signed-in'));
 // ALL routes protected by the ensureSignedIn middleware
 
 app.use('/users', usersController);
-
-
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
