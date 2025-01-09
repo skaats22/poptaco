@@ -8,12 +8,16 @@ body {
   grid-template-rows: auto;
   justify-content: center; 
   align-items: center; 
+
 }
 
 .stands > * {
   border: 1px solid black; 
   padding: 10px;
   margin: 0;
+  border-width: 1px 1px 1px 1px; 
+  border-style: solid;
+  border-color: black;
 }
 
 .name {
@@ -28,6 +32,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
+  font-size: 24px;
 }
 
 div {
