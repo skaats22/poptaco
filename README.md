@@ -1,14 +1,17 @@
 # <p style="text-align:center;">**:taco: PopTaco :taco:**</p>
-## <p style="text-align:center;">[Click here to demo!](https://skaats22.github.io/Blackjack/)</p>
+## <p style="text-align:center;">[Click here to demo!](https://poptaco-77761f1153d9.herokuapp.com/)</p>
 
-## :mag: Description
-### Blackjack is a virtual card game where you are trying to get your hand value as close to 21 as possible without exceeding it. Cards valued at 2-10, face cards worth 10, and aces worth either 1 or 11. I created this game as it is the only card game I play when I go to Vegas as well as to better understand how to advance a game with multiple states per turn. 
-### See if you have what it takes to beat the dealer in this exciting game of Blackjack!
+## :mag: Description 
+### PopTaco is a community-driven platform for taco lovers to discover, review, and share their favorite taco stands. Whether you're searching for the best tacos in town or want to rate your go-to spot, this website makes it easy to find and contribute to the best taco experiences.
+ 
+### Join the PopTaco community today!
 
-## :camera: Beginning of a game
-![Screenshots of Blackjack game](https://i.imgur.com/IEDuU9f.jpeg)
-## :camera: Middle of a hand
-![Screenshots of Blackjack game](https://i.imgur.com/k2O4mIT.jpeg)
+## :camera: Homepage
+![Screenshots of PopTaco Homepage](https://i.imgur.com/5pCBKMc.png)
+## :camera: Taco Stand List
+![Screenshots of PopTaco Taco Stand list page](https://i.imgur.com/JY2I24q.png)
+## :camera: Taco Stand Info Page
+![Screenshots of PopTaco Taco Stand info page](https://i.imgur.com/H91PsVa.png)
 
 
 ## :computer: Technologies Used
@@ -16,37 +19,32 @@
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
-
-## :art: Attributions
-1. [CardStarter CSS Library](https://replit.com/@SEIStudent/How-to-Use-CSS-Card-Library#index.html)
-1. [Freesound](https://freesound.org/)
-1. [Unslpash](unsplash.com)
+![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
+![Express](https://img.shields.io/badge/-Express-05122A?style=flat&logo=express)
+![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+![Trello](https://img.shields.io/badge/-Trello-05122A?style=flat&logo=trello)
+![Heroku](https://img.shields.io/badge/-Heroku-05122A?style=flat&logo=heroku)
+![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 
 ## **Getting Started**
 
 ### :pencil2: Instructions
-1. Place a bet by clicking the `Bet $10` button.
-1. Click `Deal` to start the hand.
-1. Press `Hit` to receive another card until you have 21 or are as close as you're willing to risk to 21. Don't go over 21 or you will lose the hand and your current wager!
-1. Click `Stay` to end your turn.
-1. If you choose `Double Down`, you can double your bet before the dealer gives you another card. However, you will only receive one additional card and your turn is over.
-1. The dealer must hit on a 16 or under, but anything 17 or above, the dealer stays.
-1. If your cards total more than 21, the dealer wins and vice versa.
-1. If your cards total less than 21 and more than the dealer, then you win and vice versa.
-1. If you win, you will be rewarded 2x the current wager and if you tie, you will receive your wager back.
-1. If your cards total exactly 21, your payout is 3:2. This means if you bet $10 and get a Blackjack then you will receive $15 back plus your original wager.
-1. If you lose, your wager will be gobbled up by the dealer.
-1. To start a new hand, simply place another wager of your choosing and hit `Deal`!
-1. Once your purse is empty, the game will end and you must hit `Reset` to start over.
-1. Good luck!
+1. Creating an account: Click "Sign Up" then enter your email, create a password, and confirm that password. You can now log in and leverage PopTaco's full functionality!
+2. Browse Taco Stands: Scroll through the directory to explore various taco stands. Click on a stand to view more details, including location, hours, reviews, and ratings.
+3. Add a New Taco Stand: You must create an account and log in to add a new taco stand. Once logged in, click "View All Taco Stands" then scroll down and click "Add a new Taco Stand." Fill in the form then click "Add Taco Stand" to contribute your favorite taco stand to the community.
+4. Editing a Taco Stand: You must create an account and log in to edit your taco stands. Once logged in, navigate to the Taco Stand's page, then click "Edit Taco Stand" to update its details. If you wish to delete the Taco Stand, simly click "Delete Taco Stand."
+5. Taco Stand Reviews: You must create an account and log in to add a new taco stand review. Once logged in, navigate to the Taco Stand's page, then click "Add Review." Once the review is posted, you can edit and/or delete from the Taco Stand's Page under your review.
+6. Engaging with the Community: Once logged in, click "Our Community" to see a list of users as well as the Taco Stands that they have created.
 
-### :moneybag: Deployed Link to Blackjack: https://skaats22.github.io/Blackjack/
+### :moneybag: Deployed Link to PopTaco: https://poptaco-77761f1153d9.herokuapp.com/
 
-### :pushpin: Link to planning materials [here.](https://github.com/skaats22/Blackjack/tree/main/Planning) 
+### :pushpin: Link to planning materials [here.](https://trello.com/b/ahAUiVpY/project-2) 
 
 ## :hammer: **Next Steps**
-* Add "all-in" button
-* Include split logic
-* Add animation for winning
-* Feature leaderboard for largest purse at one time
-* ~~Link the player's real bank account for a more realistic feel~~
+* Add filter & sort
+* Include pictures for each stand and pictures from reviewers
+* Incorporate a Random Taco Stand button
+* Favorite functionality 
+* ~~Teleport button for instant tacos~~

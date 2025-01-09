@@ -77,9 +77,9 @@
 
 <div id="login">
   <% if (user && !userHasReviewed) { %>
-    <a href="/taco-stands/<%= currentStand._id %>/reviews/new">Add Review</a>
+    <a href="/taco-stands/<%= currentStand._id %>/reviews/new"><button>Add Review</button></a>
   <% } else if (!user) { %>
-    <p><a href="/login">Please log in to add a review.</a></p>
+    <p><a href="/login"><button>Please log in to add a review.</button></a></p>
   <% } %>
 </div>
 
