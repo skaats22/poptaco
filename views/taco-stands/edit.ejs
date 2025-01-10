@@ -35,26 +35,26 @@
       </div>
     <% }) %><br>
 
-    <label class="aLabel" for="hour">Hours Open to Close: </label><br>
-    <div>
-      <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" value="<%= stand.hour[0] %>"
-        class="gLabel" required>
-      <input type="radio" name="fromPeriod" id="fromam" class="gLabel" value="am" required <%=stand.hour &&
-        stand.hour[1]==='am' ? 'checked' : '' %>> am
-      <input type="radio" name="fromPeriod" id="frompm" class="gLabel" value="pm" required <%=stand.hour &&
-        stand.hour[1]==='pm' ? 'checked' : '' %>> pm
-      <label class="aLabel" for="to"> </label>
-    </div>
-    <div>
-      <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" value="<%= stand.hour[2] %>"
-        required>
-      <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am" required <%=stand.hour &&
-        stand.hour[3]==='am' ? 'checked' : '' %>> am
-      <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm" required <%=stand.hour &&
-        stand.hour[3]==='pm' ? 'checked' : '' %>> pm
-    </div>
+  <label class="aLabel" for="hour">Hours Open to Close: </label><br>
+  <div>
+    <input type="number" name="hourFrom" id="hourFrom" min="'1" max="12" value="<%= stand.hour[0] %>"
+      class="gLabel" required>
+    <input type="radio" name="fromPeriod" id="fromam" class="gLabel" value="am" required <%=stand.hour &&
+      stand.hour[1]==='am' ? 'checked' : '' %>> am
+    <input type="radio" name="fromPeriod" id="frompm" class="gLabel" value="pm" required <%=stand.hour &&
+      stand.hour[1]==='pm' ? 'checked' : '' %>> pm
+    <label class="aLabel" for="to"> </label>
+  </div>
+  <div>
+    <input type="number" name="hourTo" class="gLabel" id="hourTo" min="'1" max="12" value="<%= stand.hour[2] %>"
+      required>
+    <input type="radio" name="toPeriod" class="gLabel" id="toam" value="am" required <%=stand.hour &&
+      stand.hour[3]==='am' ? 'checked' : '' %>> am
+    <input type="radio" name="toPeriod" class="gLabel" id="topm" value="pm" required <%=stand.hour &&
+      stand.hour[3]==='pm' ? 'checked' : '' %>> pm
+  </div>
 
-    <button type="submit">Update Taco Stand</button>
+  <button type="submit">Update Taco Stand</button>
 
 </form>
 
