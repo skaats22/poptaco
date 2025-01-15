@@ -47,7 +47,8 @@ router.get('/:sId', async (req, res) => {
     avgRating.push(review.rating)
   });
   const sum = avgRating.reduce((acc, num) => acc + num, 0);
-  const average = sum / avgRating.length;
+  const average2 = sum / avgRating.length;
+  const average = (Math.round(average2 * 100) /100);
   const emoji = '🌮';
   const ratingD = ratingEmojis(average, emoji);
   res.render('taco-stands/show.ejs', {
